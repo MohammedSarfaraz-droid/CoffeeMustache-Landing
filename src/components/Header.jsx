@@ -12,6 +12,25 @@ const Header = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
+    // Smooth scroll to section
+    const handleSmoothScroll = (e, href) => {
+        e.preventDefault();
+        const targetId = href.replace('#', '');
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            });
+        }
+
+        // Close mobile menu if open
+        if (isMobileMenuOpen) {
+            setIsMobileMenuOpen(false);
+        }
+    };
+
     // Navigation items data
     const navItems = [
         { href: "#features", label: "Features" },
@@ -20,7 +39,7 @@ const Header = () => {
     ];
 
     // Navigation Links Component
-    const NavLinks = ({ isMobile = false, onClick }) => (
+    const NavLinks = ({ isMobile = false }) => (
         <>
             {navItems.map((item) => (
                 <a
@@ -30,7 +49,7 @@ const Header = () => {
                         ? "text-foreground/90 hover:text-foreground dark:text-white/90 dark:hover:text-white transition-colors duration-200 py-2 text-lg font-medium border-b border-foreground/10 dark:border-white/10 last:border-0"
                         : "text-sm xl:text-base text-gray-800 hover:text-black dark:text-white/90 dark:hover:text-white transition-all duration-200 hover:scale-105 font-medium"
                         }`}
-                    onClick={onClick}
+                    onClick={(e) => handleSmoothScroll(e, item.href)}
                 >
                     {item.label}
                 </a>
@@ -51,7 +70,7 @@ const Header = () => {
         </AnimatedGradientButton>
     );
     return (
-        <header className="relative w-full bg-transparent text-foreground mx-3 xs:mx-4 sm:mx-0">
+        <header className="fixed top-0 left-0 right-0 w-full bg-transparent text-foreground mx-3 xs:mx-4 sm:mx-0 z-50">
             <div className="container mx-auto px-2 sm:px-4 py-3 sm:py-4 md:py-6">
                 <div className="flex items-center justify-between">
                     {/* Logo - Animated slide from far left */}
@@ -255,10 +274,7 @@ const Header = () => {
                         <div className="bg-foreground/10 backdrop-blur-md border border-foreground/20 dark:bg-white/10 dark:border-white/20 rounded-2xl p-6 shadow-lg animate-in fade-in slide-in-from-top-2 duration-200">
                             {/* Navigation Links */}
                             <nav className="flex flex-col space-y-4 mb-6">
-                                <NavLinks
-                                    isMobile={true}
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                />
+                                <NavLinks isMobile={true} />
                             </nav>
 
                             {/* Login Button */}

@@ -7,7 +7,7 @@ import AnimatedGradientButton from './ui/animated-gradient-button';
 const Hero = () => {
     return (
         <section className="relative w-full bg-transparent text-foreground mx-2 xs:mx-3 sm:mx-4 md:mx-0">
-            <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 py-6 xs:py-8 sm:py-12 lg:py-16">
+            <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 py-8 xs:py-10 sm:py-12 lg:py-16 mt-4 xs:mt-6 sm:mt-0">
                 <div className="flex flex-col lg:flex-row items-center justify-between min-h-[70vh] xs:min-h-[75vh] sm:min-h-[80vh] gap-6 xs:gap-8 sm:gap-10 lg:gap-12">
 
                     {/* Hero Content - First on all screens */}
@@ -21,7 +21,7 @@ const Hero = () => {
                         }}
                         className="flex-1 order-1 text-center lg:text-left w-full"
                     >
-                        <div className="space-y-4 xs:space-y-5 sm:space-y-6">
+                        <div className="space-y-2 xs:space-y-3 sm:space-y-4">
                             {/* Curator Info Badge */}
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
@@ -41,7 +41,7 @@ const Hero = () => {
                             </motion.div>
 
                             {/* Hero Heading */}
-                            <div className="space-y-3 xs:space-y-4">
+                            <div className="space-y-0">
                                 <motion.div
                                     initial={{ opacity: 0, y: 30 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -51,12 +51,12 @@ const Hero = () => {
                                         ease: "easeInOut",
                                     }}
                                 >
-                                    <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight">
+                                    <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-none">
                                         World's Most Powerful
                                     </h1>
                                 </motion.div>
 
-                                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 xs:gap-3 sm:gap-4">
+                                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 xs:gap-3 sm:gap-4 -mt-1">
                                     <motion.h1
                                         initial={{ opacity: 0, y: 30 }}
                                         animate={{ opacity: 1, y: 0 }}
@@ -79,30 +79,126 @@ const Hero = () => {
                                             duration: 0.6,
                                             ease: "easeInOut",
                                         }}
-                                        className="relative overflow-hidden h-12 xs:h-14 sm:h-16 md:h-18 lg:h-20 w-36 xs:w-40 sm:w-48 md:w-52 lg:w-64 xl:w-72 rounded-lg bg-gradient-to-r from-purple-100/50 to-purple-200/50 dark:from-purple-900/30 dark:to-purple-800/30 border border-purple-200/30 dark:border-purple-700/30 backdrop-blur-sm"
+                                        className="relative overflow-hidden h-10 xs:h-11 sm:h-12 md:h-14 lg:h-16 w-32 xs:w-36 sm:w-42 md:w-48 lg:w-52 xl:w-56 rounded-lg bg-gradient-to-r from-purple-100/50 to-purple-200/50 dark:from-purple-900/30 dark:to-purple-800/30 border border-purple-200/30 dark:border-purple-700/30 backdrop-blur-sm mt-1"
                                     >
+                                        {/* Mobile Animation */}
                                         <motion.div
-                                            animate={{ y: [0, -56, -112] }}
+                                            animate={{
+                                                y: [0, -40, -80]
+                                            }}
                                             transition={{
                                                 duration: 6,
                                                 repeat: Infinity,
                                                 ease: "easeInOut",
                                                 delay: 2
                                             }}
-                                            className="absolute inset-0"
+                                            className="absolute inset-0 sm:hidden"
                                         >
-                                            <div className="h-full flex items-center justify-center px-1 xs:px-2">
-                                                <span className="text-sm xs:text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-purple-700 dark:text-purple-300">
+                                            {/* First text */}
+                                            <div className="h-10 flex items-center justify-center px-2">
+                                                <span className="text-base font-bold text-purple-700 dark:text-purple-300 whitespace-nowrap">
                                                     Experience.
                                                 </span>
                                             </div>
-                                            <div className="h-full flex items-center justify-center px-1 xs:px-2">
-                                                <span className="text-sm xs:text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-purple-700 dark:text-purple-300">
+                                            {/* Second text */}
+                                            <div className="h-10 flex items-center justify-center px-2">
+                                                <span className="text-base font-bold text-purple-700 dark:text-purple-300 whitespace-nowrap">
                                                     Subscription.
                                                 </span>
                                             </div>
-                                            <div className="h-full flex items-center justify-center px-1 xs:px-2">
-                                                <span className="text-sm xs:text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-purple-700 dark:text-purple-300">
+                                            {/* Third text (loop back to first) */}
+                                            <div className="h-10 flex items-center justify-center px-2">
+                                                <span className="text-base font-bold text-purple-700 dark:text-purple-300 whitespace-nowrap">
+                                                    Experience.
+                                                </span>
+                                            </div>
+                                        </motion.div>
+
+                                        {/* Small screens animation */}
+                                        <motion.div
+                                            animate={{
+                                                y: [0, -44, -88]
+                                            }}
+                                            transition={{
+                                                duration: 6,
+                                                repeat: Infinity,
+                                                ease: "easeInOut",
+                                                delay: 2
+                                            }}
+                                            className="absolute inset-0 hidden sm:block md:hidden"
+                                        >
+                                            <div className="h-11 flex items-center justify-center px-2">
+                                                <span className="text-lg font-bold text-purple-700 dark:text-purple-300 whitespace-nowrap">
+                                                    Experience.
+                                                </span>
+                                            </div>
+                                            <div className="h-11 flex items-center justify-center px-2">
+                                                <span className="text-lg font-bold text-purple-700 dark:text-purple-300 whitespace-nowrap">
+                                                    Subscription.
+                                                </span>
+                                            </div>
+                                            <div className="h-11 flex items-center justify-center px-2">
+                                                <span className="text-lg font-bold text-purple-700 dark:text-purple-300 whitespace-nowrap">
+                                                    Experience.
+                                                </span>
+                                            </div>
+                                        </motion.div>
+
+                                        {/* Medium screens animation */}
+                                        <motion.div
+                                            animate={{
+                                                y: [0, -48, -96]
+                                            }}
+                                            transition={{
+                                                duration: 6,
+                                                repeat: Infinity,
+                                                ease: "easeInOut",
+                                                delay: 2
+                                            }}
+                                            className="absolute inset-0 hidden md:block lg:hidden"
+                                        >
+                                            <div className="h-12 flex items-center justify-center px-2">
+                                                <span className="text-xl font-bold text-purple-700 dark:text-purple-300 whitespace-nowrap">
+                                                    Experience.
+                                                </span>
+                                            </div>
+                                            <div className="h-12 flex items-center justify-center px-2">
+                                                <span className="text-xl font-bold text-purple-700 dark:text-purple-300 whitespace-nowrap">
+                                                    Subscription.
+                                                </span>
+                                            </div>
+                                            <div className="h-12 flex items-center justify-center px-2">
+                                                <span className="text-xl font-bold text-purple-700 dark:text-purple-300 whitespace-nowrap">
+                                                    Experience.
+                                                </span>
+                                            </div>
+                                        </motion.div>
+
+                                        {/* Large screens animation */}
+                                        <motion.div
+                                            animate={{
+                                                y: [0, -56, -112]
+                                            }}
+                                            transition={{
+                                                duration: 6,
+                                                repeat: Infinity,
+                                                ease: "easeInOut",
+                                                delay: 2
+                                            }}
+                                            className="absolute inset-0 hidden lg:block"
+                                        >
+                                            <div className="h-14 flex items-center justify-center px-2">
+                                                <span className="text-2xl lg:text-3xl xl:text-4xl font-bold text-purple-700 dark:text-purple-300 whitespace-nowrap">
+                                                    Experience.
+                                                </span>
+                                            </div>
+                                            <div className="h-14 flex items-center justify-center px-2">
+                                                <span className="text-2xl lg:text-3xl xl:text-4xl font-bold text-purple-700 dark:text-purple-300 whitespace-nowrap">
+                                                    Subscription.
+                                                </span>
+                                            </div>
+                                            <div className="h-14 flex items-center justify-center px-2">
+                                                <span className="text-2xl lg:text-3xl xl:text-4xl font-bold text-purple-700 dark:text-purple-300 whitespace-nowrap">
                                                     Experience.
                                                 </span>
                                             </div>
@@ -120,7 +216,7 @@ const Hero = () => {
                                     duration: 0.8,
                                     ease: "easeInOut",
                                 }}
-                                className="text-sm xs:text-base sm:text-lg md:text-xl text-foreground/80 dark:text-white/80 leading-relaxed max-w-xs xs:max-w-sm sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto lg:mx-0"
+                                className="text-xs xs:text-sm sm:text-base md:text-lg text-foreground/80 dark:text-white/80 leading-snug max-w-xs xs:max-w-sm sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto lg:mx-0"
                             >
                                 Stop juggling coffee shops and subscriptions - Coffee Mustache gives you access to the world's best coffee experiences for just $12/month. That's almost half of what you'd pay for premium coffee subscriptions.
                             </motion.p>
@@ -165,7 +261,7 @@ const Hero = () => {
                         }}
                         className="flex-1 order-2 w-full"
                     >
-                        <div className="relative w-full h-[280px] xs:h-[320px] sm:h-[400px] md:h-[450px] lg:h-[500px] xl:h-[600px] rounded-xl xs:rounded-2xl overflow-hidden bg-gradient-to-br from-purple-100/20 to-purple-200/20 dark:from-purple-900/20 dark:to-purple-800/20 border border-purple-200/30 dark:border-purple-700/30 backdrop-blur-sm">
+                        <div className="relative w-full h-[240px] xs:h-[260px] sm:h-[300px] md:h-[320px] lg:h-[350px] xl:h-[400px] rounded-xl xs:rounded-2xl overflow-hidden bg-gradient-to-br from-purple-100/20 to-purple-200/20 dark:from-purple-900/20 dark:to-purple-800/20 border border-purple-200/30 dark:border-purple-700/30 backdrop-blur-sm">
                             {/* Background Image/Pattern */}
                             <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-purple-100/50 dark:from-purple-900/30 dark:to-purple-800/30"></div>
 
