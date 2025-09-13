@@ -1,5 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect";
+import { PremiumStarsBackground } from "@/components/ui/premium-stars";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,9 +23,23 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative`} 
       >
-        {children}
+        <ThemeProvider>
+          <div className="fixed inset-0 overflow-hidden z-0">
+            <BackgroundRippleEffect
+              rows={30}
+              cols={40}
+              cellSize={50}
+            />
+          </div>
+          <div className="fixed inset-0 overflow-hidden pointer-events-none z-10">
+            <PremiumStarsBackground />
+          </div>
+          <div className="relative z-20">
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
