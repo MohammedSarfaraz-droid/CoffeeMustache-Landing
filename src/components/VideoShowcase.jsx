@@ -71,23 +71,23 @@ const ResultRow = ({ tone = 'green', title, subtitle }) => {
 
 export default function VideoShowcase() {
     return (
-        <section className="video-section py-20 sm:py-24 lg:py-28 relative">
+        <section className="video-section py-10 relative">
             <div className="absolute inset-0 pointer-events-none">
-                <div className="mx-auto max-w-7xl h-48 blur-3xl bg-teal-400/10 rounded-[4rem]" />
+                <div className="mx-auto max-w-7xl h-36 blur-3xl bg-teal-400/10 rounded-[4rem]" />
             </div>
 
             <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Heading */}
-                <div className="workflow-heading text-center mb-6">
+                <div className="workflow-heading text-center mb-4 sm:mb-6">
                     <h2 className="cards-head text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-foreground tracking-tight">
-                        Watch AI Fiesta Catch What Others Miss
+                        Watch AI Fiesta Catch What <span className="text-purple-600 dark:text-purple-400">Others Miss</span>
                     </h2>
-                    <div className="card-subhead text-base sm:text-lg text-foreground/70 mt-2">
+                    <div className="card-subhead text-base sm:text-lg text-foreground/70 mt-1">
                         Real question. Real answers. See which AI gets it right.
                     </div>
                 </div>
 
-                <div className="video-wrapper grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-8 items-stretch lg:[grid-template-columns:1.15fr_0.85fr] xl:[grid-template-columns:1.2fr_0.8fr]">
+                <div className="video-wrapper grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-stretch lg:[grid-template-columns:1.15fr_0.85fr] xl:[grid-template-columns:1.2fr_0.8fr]">
                     {/* Left: Video */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -142,11 +142,11 @@ export default function VideoShowcase() {
                         </div>
 
                         {/* CTA */}
-                        <div className="video-btn mt-4">
+                        <div className="video-btn mt-3">
                             <AnimatedGradientButton
                                 size="mobile"
                                 variant="primary"
-                                className="sm:w-auto"
+                                className="sm:w-auto whitespace-nowrap text-xs sm:text-sm px-3 sm:px-5"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     const target = document.querySelector('#pricing');
@@ -157,7 +157,7 @@ export default function VideoShowcase() {
                                     }
                                 }}
                             >
-                                Get smarter & more accurate AI answers
+                                Get smarter & accurate AI answers
                             </AnimatedGradientButton>
                             <div className="text-block text-foreground/60 text-[11px] sm:text-xs mt-2">
                                 This is why comparing matters — get the full picture every time

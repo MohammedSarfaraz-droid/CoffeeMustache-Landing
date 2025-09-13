@@ -265,7 +265,7 @@ const AIModels = () => {
     }, []);
 
     return (
-        <section id="workflow" className="relative py-16 md:py-24 text-foreground overflow-hidden">
+        <section id="workflow" className="relative py-10 text-foreground overflow-hidden">
             <div className="container mx-auto px-4">
                 {/* Section Header */}
                 <motion.div
@@ -273,7 +273,7 @@ const AIModels = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-center mb-6 md:mb-8"
+                    className="text-center"
                 >
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
                         Pick the best <span className="text-violet-600 dark:text-violet-400">characteristics</span>
@@ -283,7 +283,7 @@ const AIModels = () => {
                 </motion.div>
 
                 {/* Central Layout Container */}
-                <div ref={containerRef} className="relative mx-auto max-w-7xl h-[760px] md:h-[820px] lg:h-[880px]">
+                <div ref={containerRef} className="relative mx-auto max-w-7xl h-[760px]">
                     {/* Connector overlay (SVG) */}
                     <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox={`0 0 ${containerSize.width} ${containerSize.height}`} preserveAspectRatio="none">
                         <defs>

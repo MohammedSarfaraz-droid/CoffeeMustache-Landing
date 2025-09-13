@@ -86,7 +86,7 @@ const Pricing = () => {
     ];
 
     return (
-        <section id="pricing" className="w-full py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28">
+        <section id="pricing" className="w-full py-10">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
                 {/* Header */}
                 <motion.div
