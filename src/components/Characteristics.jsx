@@ -282,145 +282,176 @@ const AIModels = () => {
                     </h2>
                 </motion.div>
 
-                {/* Central Layout Container */}
-                <div ref={containerRef} className="relative mx-auto max-w-7xl h-[760px]">
-                    {/* Connector overlay (SVG) */}
-                    <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox={`0 0 ${containerSize.width} ${containerSize.height}`} preserveAspectRatio="none">
-                        <defs>
-                            <linearGradient id="connGradientL" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.75" />
-                                <stop offset="100%" stopColor="#D946EF" stopOpacity="0.75" />
-                            </linearGradient>
-                            <linearGradient id="connGradientR" x1="100%" y1="0%" x2="0%" y2="0%">
-                                <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.75" />
-                                <stop offset="100%" stopColor="#D946EF" stopOpacity="0.75" />
-                            </linearGradient>
-                        </defs>
-                        {paths.map((p) => (
-                            <motion.path
-                                key={p.id}
-                                d={p.d}
-                                stroke={p.side === 'left' ? 'url(#connGradientL)' : 'url(#connGradientR)'}
-                                strokeWidth={2}
-                                fill="none"
-                                initial={{ pathLength: 0, opacity: 0 }}
-                                whileInView={{ pathLength: 1, opacity: 0.7 }}
-                                viewport={{ once: false }}
-                                transition={{ duration: 1.2, ease: 'easeOut' }}
-                            />
-                        ))}
-                    </svg>
-                    {/* Central Hub with layered glow/rings */}
-                    <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                        <div className="relative">
-                            {/* Big radial glow (purple) */}
-                            <div className="absolute -inset-[180px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(139,92,246,0.10)_0%,rgba(217,70,239,0.06)_35%,transparent_70%)] blur-2xl" />
+                {/* Responsive layout: stacked cards for md and below, original for lg+ */}
+                <div className="relative mx-auto w-full">
+                    {/* Large screens: show logo, connectors, left/right stacks */}
+                    <div className="hidden lg:block">
+                        <div ref={containerRef} className="relative mx-auto max-w-7xl h-[760px]">
+                            {/* Connector overlay (SVG) */}
+                            <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox={`0 0 ${containerSize.width} ${containerSize.height}`} preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="connGradientL" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.75" />
+                                        <stop offset="100%" stopColor="#D946EF" stopOpacity="0.75" />
+                                    </linearGradient>
+                                    <linearGradient id="connGradientR" x1="100%" y1="0%" x2="0%" y2="0%">
+                                        <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.75" />
+                                        <stop offset="100%" stopColor="#D946EF" stopOpacity="0.75" />
+                                    </linearGradient>
+                                </defs>
+                                {paths.map((p) => (
+                                    <motion.path
+                                        key={p.id}
+                                        d={p.d}
+                                        stroke={p.side === 'left' ? 'url(#connGradientL)' : 'url(#connGradientR)'}
+                                        strokeWidth={2}
+                                        fill="none"
+                                        initial={{ pathLength: 0, opacity: 0 }}
+                                        whileInView={{ pathLength: 1, opacity: 0.7 }}
+                                        viewport={{ once: false }}
+                                        transition={{ duration: 1.2, ease: 'easeOut' }}
+                                    />
+                                ))}
+                            </svg>
+                            {/* Central Hub with layered glow/rings */}
+                            <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                                <div className="relative">
+                                    {/* Big radial glow (purple) */}
+                                    <div className="absolute -inset-[180px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(139,92,246,0.10)_0%,rgba(217,70,239,0.06)_35%,transparent_70%)] blur-2xl" />
 
-                            {/* Outer glow (border removed) - purple */}
-                            <div className="relative w-[420px] h-[420px] rounded-full bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.08)_0%,rgba(217,70,239,0.05)_45%,transparent_60%)]" />
+                                    {/* Outer glow (border removed) - purple */}
+                                    <div className="relative w-[420px] h-[420px] rounded-full bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.08)_0%,rgba(217,70,239,0.05)_45%,transparent_60%)]" />
 
-                            {/* Inner glow (previous ring border removed) */}
-                            {/* <div className="absolute inset-0 m-[80px] rounded-full bg-[radial-gradient(circle_at_center,rgba(56,212,122,0.06)_0%,transparent_70%)]" /> */}
+                                    {/* Logo chip (theme-aware) */}
+                                    <motion.div
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.8 }}
+                                        ref={hubRef}
+                                        className="absolute inset-0 m-[140px] rounded-full bg-white/80 dark:bg-background/80 backdrop-blur-sm border border-neutral-200/70 dark:border-white/10 flex items-center justify-center shadow-2xl"
+                                    >
+                                        {centerLogo}
+                                    </motion.div>
+                                </div>
+                            </div>
 
-                            {/* Logo chip (theme-aware) */}
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.8 }}
-                                ref={hubRef}
-                                className="absolute inset-0 m-[140px] rounded-full bg-white/80 dark:bg-background/80 backdrop-blur-sm border border-neutral-200/70 dark:border-white/10 flex items-center justify-center shadow-2xl"
-                            >
-                                {centerLogo}
-                            </motion.div>
+                            {/* Left stack */}
+                            <div className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-col gap-6 md:gap-8">
+                                {aiModels.filter(m => m.position.includes('left')).map((model, idx) => {
+                                    const { lineW, offsetY } = getConnectionConfig(model.position);
+                                    return (
+                                        <motion.div
+                                            key={model.id}
+                                            initial={{ opacity: 0, x: -30 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ duration: 0.5, delay: idx * 0.08 }}
+                                            style={{ ['--line-w']: lineW, ['--offset-y']: offsetY }}
+                                            className="relative group w-[420px] md:w-[460px]"
+                                            ref={(el) => {
+                                                if (el) cardRefs.current[model.id] = el;
+                                            }}
+                                        >
+                                            <div>
+                                                <div className="relative bg-white/80 dark:bg-[#0C0F10]/90 backdrop-blur-md border border-neutral-200/70 dark:border-white/10 border-r-4 border-b-4 border-r-violet-500 border-b-violet-500 dark:border-r-violet-400 dark:border-b-violet-400 rounded-2xl p-6 shadow-xl">
+                                                    <div className="flex items-start gap-3">
+                                                        <div className="relative p-3 bg-gradient-to-br from-violet-600/10 to-fuchsia-600/10 dark:from-violet-500/15 dark:to-fuchsia-500/15 rounded-xl border border-violet-600/20 dark:border-violet-400/25">{model.icon}</div>
+                                                        <div className="flex-1">
+                                                            <h3 className="text-lg md:text-xl font-semibold">{model.name}</h3>
+                                                            <div className="mt-1 inline-block px-3 py-1 bg-violet-500/10 dark:bg-violet-500/15 text-violet-700 dark:text-violet-300 text-xs md:text-sm rounded-full border border-violet-600/20 dark:border-violet-400/25">{model.tag}</div>
+                                                            <p className="mt-3 text-sm text-foreground/70 leading-relaxed">{model.description}</p>
+                                                        </div>
+                                                    </div>
+                                                    {/* hover glow */}
+                                                    <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-r from-violet-400/10 to-fuchsia-400/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                </div>
+                                            </div>
+                                        </motion.div>
+                                    );
+                                })}
+                            </div>
+
+                            {/* Right stack */}
+                            <div className="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col gap-6 md:gap-8 items-end">
+                                {aiModels.filter(m => m.position.includes('right')).map((model, idx) => {
+                                    const { lineW, offsetY } = getConnectionConfig(model.position);
+                                    return (
+                                        <motion.div
+                                            key={model.id}
+                                            initial={{ opacity: 0, x: 30 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ duration: 0.5, delay: idx * 0.08 }}
+                                            style={{ ['--line-w']: lineW, ['--offset-y']: offsetY }}
+                                            className="relative group w-[420px] md:w-[460px]"
+                                            ref={(el) => {
+                                                if (el) cardRefs.current[model.id] = el;
+                                            }}
+                                        >
+                                            <div>
+                                                <div className="relative bg-white/80 dark:bg-[#0C0F10]/90 backdrop-blur-md border border-neutral-200/70 dark:border-white/10 border-r-4 border-b-4 border-r-violet-500 border-b-violet-500 dark:border-r-violet-400 dark:border-b-violet-400 rounded-2xl p-6 shadow-xl">
+                                                    <div className="flex items-start gap-3">
+                                                        <div className="relative p-3 bg-gradient-to-br from-violet-600/10 to-fuchsia-600/10 dark:from-violet-500/15 dark:to-fuchsia-500/15 rounded-xl border border-violet-600/20 dark:border-violet-400/25">{model.icon}</div>
+                                                        <div className="flex-1">
+                                                            <h3 className="text-lg md:text-xl font-semibold">{model.name}</h3>
+                                                            <div className="mt-1 inline-block px-3 py-1 bg-violet-500/10 dark:bg-violet-500/15 text-violet-700 dark:text-violet-300 text-xs md:text-sm rounded-full border border-violet-600/20 dark:border-violet-400/25">{model.tag}</div>
+                                                            <p className="mt-3 text-sm text-foreground/70 leading-relaxed">{model.description}</p>
+                                                        </div>
+                                                    </div>
+                                                    {/* hover glow */}
+                                                    <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-l from-violet-400/10 to-fuchsia-400/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                </div>
+                                            </div>
+                                        </motion.div>
+                                    );
+                                })}
+                            </div>
+
+                            {/* Subtle floating particles */}
+                            <div className="absolute inset-0 pointer-events-none">
+                                {[...Array(18)].map((_, i) => (
+                                    <motion.span
+                                        key={i}
+                                        initial={{ opacity: 0 }}
+                                        whileInView={{ opacity: [0, 1, 0] }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 3.2, delay: (i % 6) * 0.3, repeat: Infinity, repeatDelay: 1.2 }}
+                                        className="absolute w-1 h-1 rounded-full bg-fuchsia-500/30 dark:bg-fuchsia-400/40"
+                                        style={{ left: `${(i * 53) % 100}%`, top: `${(i * 37) % 100}%` }}
+                                    />
+                                ))}
+                            </div>
                         </div>
                     </div>
 
-                    {/* Left stack */}
-                    <div className="absolute left-0 top-1/2 -translate-y-1/2 flex flex-col gap-6 md:gap-8">
-                        {aiModels.filter(m => m.position.includes('left')).map((model, idx) => {
-                            const { lineW, offsetY } = getConnectionConfig(model.position);
-                            return (
+                    {/* Medium and small screens: stacked cards, no logo or connectors */}
+                    <div className="block lg:hidden">
+                        <div className="flex flex-col items-center gap-6 md:gap-8 w-full max-w-2xl mx-auto mt-8">
+                            {aiModels.map((model, idx) => (
                                 <motion.div
                                     key={model.id}
-                                    initial={{ opacity: 0, x: -30 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5, delay: idx * 0.08 }}
-                                    style={{ ['--line-w']: lineW, ['--offset-y']: offsetY }}
-                                    className="relative group w-[420px] md:w-[460px]"
-                                    ref={(el) => {
-                                        if (el) cardRefs.current[model.id] = el;
-                                    }}
+                                    className="w-full"
                                 >
-                                    <div>
-                                        <div className="relative bg-white/80 dark:bg-[#0C0F10]/90 backdrop-blur-md border border-neutral-200/70 dark:border-white/10 border-r-4 border-b-4 border-r-violet-500 border-b-violet-500 dark:border-r-violet-400 dark:border-b-violet-400 rounded-2xl p-6 shadow-xl">
-                                            <div className="flex items-start gap-3">
-                                                <div className="relative p-3 bg-gradient-to-br from-violet-600/10 to-fuchsia-600/10 dark:from-violet-500/15 dark:to-fuchsia-500/15 rounded-xl border border-violet-600/20 dark:border-violet-400/25">{model.icon}</div>
-                                                <div className="flex-1">
-                                                    <h3 className="text-lg md:text-xl font-semibold">{model.name}</h3>
-                                                    <div className="mt-1 inline-block px-3 py-1 bg-violet-500/10 dark:bg-violet-500/15 text-violet-700 dark:text-violet-300 text-xs md:text-sm rounded-full border border-violet-600/20 dark:border-violet-400/25">{model.tag}</div>
-                                                    <p className="mt-3 text-sm text-foreground/70 leading-relaxed">{model.description}</p>
-                                                </div>
+                                    <div className="relative bg-white/80 dark:bg-[#0C0F10]/90 backdrop-blur-md border border-neutral-200/70 dark:border-white/10 border-r-4 border-b-4 border-r-violet-500 border-b-violet-500 dark:border-r-violet-400 dark:border-b-violet-400 rounded-2xl p-6 shadow-xl">
+                                        <div className="flex items-start gap-3">
+                                            <div className="relative p-3 bg-gradient-to-br from-violet-600/10 to-fuchsia-600/10 dark:from-violet-500/15 dark:to-fuchsia-500/15 rounded-xl border border-violet-600/20 dark:border-violet-400/25">{model.icon}</div>
+                                            <div className="flex-1">
+                                                <h3 className="text-lg md:text-xl font-semibold">{model.name}</h3>
+                                                <div className="mt-1 inline-block px-3 py-1 bg-violet-500/10 dark:bg-violet-500/15 text-violet-700 dark:text-violet-300 text-xs md:text-sm rounded-full border border-violet-600/20 dark:border-violet-400/25">{model.tag}</div>
+                                                <p className="mt-3 text-sm text-foreground/70 leading-relaxed">{model.description}</p>
                                             </div>
-                                            {/* hover glow */}
-                                            <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-r from-violet-400/10 to-fuchsia-400/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                                         </div>
+                                        {/* hover glow */}
+                                        <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-r from-violet-400/10 to-fuchsia-400/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                                     </div>
                                 </motion.div>
-                            );
-                        })}
-                    </div>
-
-                    {/* Right stack */}
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col gap-6 md:gap-8 items-end">
-                        {aiModels.filter(m => m.position.includes('right')).map((model, idx) => {
-                            const { lineW, offsetY } = getConnectionConfig(model.position);
-                            return (
-                                <motion.div
-                                    key={model.id}
-                                    initial={{ opacity: 0, x: 30 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: idx * 0.08 }}
-                                    style={{ ['--line-w']: lineW, ['--offset-y']: offsetY }}
-                                    className="relative group w-[420px] md:w-[460px]"
-                                    ref={(el) => {
-                                        if (el) cardRefs.current[model.id] = el;
-                                    }}
-                                >
-                                    <div>
-                                        <div className="relative bg-white/80 dark:bg-[#0C0F10]/90 backdrop-blur-md border border-neutral-200/70 dark:border-white/10 border-r-4 border-b-4 border-r-violet-500 border-b-violet-500 dark:border-r-violet-400 dark:border-b-violet-400 rounded-2xl p-6 shadow-xl">
-                                            <div className="flex items-start gap-3">
-                                                <div className="relative p-3 bg-gradient-to-br from-violet-600/10 to-fuchsia-600/10 dark:from-violet-500/15 dark:to-fuchsia-500/15 rounded-xl border border-violet-600/20 dark:border-violet-400/25">{model.icon}</div>
-                                                <div className="flex-1">
-                                                    <h3 className="text-lg md:text-xl font-semibold">{model.name}</h3>
-                                                    <div className="mt-1 inline-block px-3 py-1 bg-violet-500/10 dark:bg-violet-500/15 text-violet-700 dark:text-violet-300 text-xs md:text-sm rounded-full border border-violet-600/20 dark:border-violet-400/25">{model.tag}</div>
-                                                    <p className="mt-3 text-sm text-foreground/70 leading-relaxed">{model.description}</p>
-                                                </div>
-                                            </div>
-                                            {/* hover glow */}
-                                            <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-l from-violet-400/10 to-fuchsia-400/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            );
-                        })}
-                    </div>
-
-                    {/* Subtle floating particles */}
-                    <div className="absolute inset-0 pointer-events-none">
-                        {[...Array(18)].map((_, i) => (
-                            <motion.span
-                                key={i}
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: [0, 1, 0] }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 3.2, delay: (i % 6) * 0.3, repeat: Infinity, repeatDelay: 1.2 }}
-                                className="absolute w-1 h-1 rounded-full bg-fuchsia-500/30 dark:bg-fuchsia-400/40"
-                                style={{ left: `${(i * 53) % 100}%`, top: `${(i * 37) % 100}%` }}
-                            />
-                        ))}
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
