@@ -70,9 +70,9 @@ const Header = () => {
         </AnimatedGradientButton>
     );
     return (
-        <header className="fixed top-0 left-0 right-0 w-full bg-transparent text-foreground mx-3 xs:mx-4 sm:mx-0 z-50">
-            <div className="container mx-auto px-2 sm:px-4 py-3 sm:py-4 md:py-6">
-                <div className="flex items-center justify-between">
+        <header className="fixed top-0 left-0 right-0 w-full bg-transparent text-foreground mx-2 xs:mx-3 sm:mx-0 z-50 mb-4 sm:mb-6">
+            <div className="container mx-auto px-2 sm:px-4 py-2 sm:py-3 md:py-5">
+                <div className="flex items-center justify-between flex-wrap gap-y-2">
                     {/* Logo - Animated slide from far left */}
                     <motion.div
                         initial={{ opacity: 0.3, x: -120 }}
@@ -84,7 +84,7 @@ const Header = () => {
                         }}
                         className="flex items-center flex-shrink-0"
                     >
-                        <h1 className="text-xl sm:text-2xl font-bold text-foreground truncate">
+                        <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-foreground truncate">
                             <span className="hidden sm:inline">Coffee Mustache</span>
                             <span className="sm:hidden">CM</span>
                         </h1>
@@ -189,7 +189,7 @@ const Header = () => {
                             duration: 0.8,
                             ease: "easeInOut",
                         }}
-                        className="hidden lg:flex items-center space-x-4"
+                        className="hidden lg:flex items-center space-x-3 md:space-x-4"
                     >
                         <ThemeToggle />
                         <LoginButton />

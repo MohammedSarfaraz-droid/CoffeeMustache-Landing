@@ -366,8 +366,8 @@ const Pricing = () => {
                                             display: inline-flex;
                                             align-items: center;
                                             justify-content: center;
-                                            gap: 10px;
-                                            padding: 10px 14px;
+                                            gap: 7px;
+                                            padding: 7px 10px;
                                             background: var(--shiny-cta-bg);
                                             border-radius: 9999px;
                                             border: 1px solid rgba(230, 193, 90, 0.35);
@@ -377,14 +377,18 @@ const Pricing = () => {
                                                 0 2px 10px rgba(230, 193, 90, 0.06);
                                             overflow: hidden;
                                             isolation: isolate;
+                                            max-width: 95vw;
                                         }
                                         .label {
                                             color: var(--shiny-cta-fg);
                                             font-weight: 800;
                                             letter-spacing: 0.04em;
                                             text-transform: uppercase;
-                                            font-size: 0.78rem;
-                                            white-space: nowrap;
+                                            font-size: 0.7rem;
+                                            white-space: normal;
+                                            word-break: break-word;
+                                            line-height: 1.2;
+                                            text-align: center;
                                         }
                                         .div-block-35 {
                                             -webkit-text-size-adjust: 100%;
@@ -424,7 +428,7 @@ const Pricing = () => {
                                         }
                                         @media (min-width: 640px) { /* sm */
                                             .bonus-pill { gap: 12px; padding: 12px 18px; }
-                                            .label { font-size: 0.85rem; }
+                                            .label { font-size: 0.85rem; white-space: nowrap; }
                                         }
                                         @media (min-width: 1024px) { /* lg */
                                             .bonus-pill { padding: 12px 20px; }
