@@ -7,6 +7,7 @@ import { LampContainer } from './ui/lamp';
 
 const Pricing = () => {
     const [selectedPlan, setSelectedPlan] = useState('monthly');
+    const [lampHovered, setLampHovered] = useState(false);
 
     // AI Models data
     const aiModels = [
@@ -90,9 +91,10 @@ const Pricing = () => {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
                 {/* Header */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
+                    initial={{ opacity: 0, y: 40, scale: 0.98 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, ease: 'easeOut' }}
                     className="text-center mb-8 sm:mb-12 lg:mb-16"
                 >
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-4 leading-tight">
@@ -112,10 +114,11 @@ const Pricing = () => {
                     <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 w-full max-w-full mx-auto">
                         {/* Individual AI Subscriptions */}
                         <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                            className="bg-black/5 dark:bg-black/30 backdrop-blur-sm border border-foreground/10 dark:border-white/20 rounded-xl lg:rounded-2xl p-4 sm:p-6 w-full max-w-full sm:max-w-md lg:max-w-none lg:w-[400px] flex-shrink-0"
+                            initial={{ opacity: 0, x: -60, scale: 0.97 }}
+                            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
+                            className="bg-black/5 dark:bg-black/30 backdrop-blur-sm border border-foreground/10 dark:border-white/20 rounded-xl lg:rounded-2xl p-4 sm:p-6 w-full max-w-full sm:max-w-md lg:max-w-none lg:w-[400px] flex-shrink-0 shadow-xl shadow-black/10 dark:shadow-purple-900/10"
                         >
                             <div className="text-center mb-4 sm:mb-6">
                                 <h3 className="text-base sm:text-lg font-medium lg:font-semibold text-foreground/90 mb-3 lg:mb-4">Individual AI Subscriptions</h3>
@@ -131,10 +134,11 @@ const Pricing = () => {
                                 {aiModels.map((model, index) => (
                                     <motion.div
                                         key={index}
-                                        initial={{ opacity: 0, y: 10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.4, delay: 0.15 + index * 0.06 }}
-                                        className="flex items-center justify-between p-2.5 sm:p-3 bg-foreground/[0.02] dark:bg-white/[0.01] lg:bg-foreground/[0.03] lg:dark:bg-white/[0.02] rounded-lg"
+                                        initial={{ opacity: 0, y: 18 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.45, delay: 0.18 + index * 0.09, ease: 'easeOut' }}
+                                        className="flex items-center justify-between p-2.5 sm:p-3 bg-foreground/[0.02] dark:bg-white/[0.01] lg:bg-foreground/[0.03] lg:dark:bg-white/[0.02] rounded-lg shadow-sm"
                                     >
                                         <div className="flex items-center gap-2 sm:gap-2.5">
                                             <div className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0">{model.icon}</div>
@@ -150,9 +154,10 @@ const Pricing = () => {
                                 {aiModelFeatures.map((feature, index) => (
                                     <motion.div
                                         key={index}
-                                        initial={{ opacity: 0, y: 10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.4, delay: 0.25 + index * 0.06 }}
+                                        initial={{ opacity: 0, y: 14 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.4, delay: 0.28 + index * 0.09, ease: 'easeOut' }}
                                         className="flex items-center gap-2.5 sm:gap-3"
                                     >
                                         <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
@@ -186,10 +191,11 @@ const Pricing = () => {
 
                         {/* Coffee Mustache Plan */}
                         <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                            className="relative w-full max-w-full sm:max-w-md lg:max-w-none lg:w-[600px] flex-shrink-0"
+                            initial={{ opacity: 0, x: 60, scale: 0.97 }}
+                            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
+                            className="relative w-full max-w-full sm:max-w-md lg:max-w-none lg:w-[600px] flex-shrink-0 shadow-xl shadow-purple-400/10 dark:shadow-purple-900/10"
                         >
                             {/* Outer glow effect */}
                             <div className="absolute inset-0 bg-gradient-to-br from-purple-400/10 to-violet-400/10 rounded-xl lg:rounded-2xl blur-xl scale-105"></div>
@@ -205,8 +211,11 @@ const Pricing = () => {
                                     <motion.div
                                         initial={{ opacity: 0, scaleY: 0.3 }}
                                         whileInView={{ opacity: 1, scaleY: 1 }}
-                                        transition={{ duration: 2.5, ease: "easeOut", delay: 0.8 }}
-                                        className="relative"
+                                        whileHover={{ scale: 1.04, boxShadow: "0 0 40px 10px #a78bfa" }}
+                                        onHoverStart={() => setLampHovered(true)}
+                                        onHoverEnd={() => setLampHovered(false)}
+                                        transition={{ duration: 2.5, ease: "easeOut" }}
+                                        className="relative cursor-pointer"
                                     >
                                         {/* Main Lamp Housing - EXTREMELY THICK and PROMINENT */}
                                         <div className="w-56 h-20 bg-gradient-to-b from-gray-200 via-gray-300 to-gray-500 rounded-t-3xl shadow-2xl relative mx-auto" style={{ borderWidth: '16px', border: '16px solid #4b5563' }}>
@@ -486,19 +495,25 @@ const Pricing = () => {
                                 {/* CTA Button */}
                                 <motion.div
                                     className="relative z-10 mb-3 lg:mb-4"
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.45, delay: 0.2 }}
+                                    initial={{ opacity: 0, y: 18, scale: 0.98 }}
+                                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: 0.22, ease: 'easeOut' }}
                                 >
-                                    <AnimatedGradientButton
-                                        size="default"
-                                        variant="primary"
-                                        showArrow={true}
-                                        arrowDirection="right"
-                                        className="w-full text-white font-bold py-3 sm:py-4 px-6 lg:px-8 rounded-xl text-sm sm:text-base transition-all duration-200 shadow-lg shadow-purple-500/20"
+                                    <motion.div
+                                        whileHover={{ scale: 1.04, boxShadow: "0 0 32px 8px #a78bfa" }}
+                                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
                                     >
-                                        Get Started Now
-                                    </AnimatedGradientButton>
+                                        <AnimatedGradientButton
+                                            size="default"
+                                            variant="primary"
+                                            showArrow={true}
+                                            arrowDirection="right"
+                                            className="w-full text-white font-bold py-3 sm:py-4 px-6 lg:px-8 rounded-xl text-sm sm:text-base transition-all duration-200 shadow-lg shadow-purple-500/20"
+                                        >
+                                            Get Started Now
+                                        </AnimatedGradientButton>
+                                    </motion.div>
                                 </motion.div>
 
                                 <p className="relative z-10 text-xs sm:text-sm text-center text-foreground/60 flex items-center justify-center gap-1 lg:gap-2 font-medium">
