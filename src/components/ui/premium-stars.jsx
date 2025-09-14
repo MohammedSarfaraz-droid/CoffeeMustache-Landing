@@ -4,8 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
-export const PremiumStarsBackground = () => {
-    const stars = 80; // More stars for better coverage
+export const PremiumStarsBackground = ({ stars = 160 }) => {
 
     const [glowingStars, setGlowingStars] = useState([]);
     const [starPositions, setStarPositions] = useState([]);
