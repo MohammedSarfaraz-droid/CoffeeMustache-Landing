@@ -54,7 +54,7 @@ const Hero = () => {
                                         ease: "easeInOut",
                                     }}
                                 >
-                                    <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-none">
+                                    <h1 className="text-[60px] font-bold text-foreground leading-none">
                                         World's Most Powerful
                                     </h1>
                                 </motion.div>
@@ -68,7 +68,7 @@ const Hero = () => {
                                             duration: 0.8,
                                             ease: "easeInOut",
                                         }}
-                                        className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground"
+                                        className="text-[60px] font-bold text-foreground"
                                     >
                                         Coffee
                                     </motion.h1>
@@ -82,7 +82,7 @@ const Hero = () => {
                                             duration: 0.6,
                                             ease: "easeInOut",
                                         }}
-                                        className="relative overflow-hidden h-10 xs:h-11 sm:h-12 md:h-14 lg:h-16 w-32 xs:w-36 sm:w-42 md:w-48 lg:w-52 xl:w-56 rounded-lg bg-gradient-to-r from-purple-100/50 to-purple-200/50 dark:from-purple-900/30 dark:to-purple-800/30 border border-purple-200/30 dark:border-purple-700/30 backdrop-blur-sm mt-1"
+                                        className="relative overflow-hidden h-10 xs:h-11 sm:h-12 md:h-14 lg:h-16 w-32 xs:w-36 sm:w-42 md:w-48 lg:w-64 xl:w-72 rounded-lg bg-gradient-to-r from-purple-100/50 to-purple-200/50 dark:from-purple-900/30 dark:to-purple-800/30 border border-purple-200/30 dark:border-purple-700/30 backdrop-blur-sm mt-1"
                                     >
                                         {/* Mobile Animation */}
                                         <motion.div
@@ -219,7 +219,7 @@ const Hero = () => {
                                     duration: 0.8,
                                     ease: "easeInOut",
                                 }}
-                                className="text-xs xs:text-sm sm:text-base md:text-lg text-foreground/80 dark:text-white/80 leading-snug max-w-xs xs:max-w-sm sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto lg:mx-0"
+                                className="text-sm xs:text-sm sm:text-base md:text-lg text-foreground/80 dark:text-white/80 leading-snug max-w-xs xs:max-w-sm sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto lg:mx-0"
                             >
                                 Stop juggling coffee shops and subscriptions - Coffee Mustache gives you access to the world's best coffee experiences for just $12/month. That's almost half of what you'd pay for premium coffee subscriptions.
                             </motion.p>
