@@ -27,8 +27,7 @@ export default function FooterCTA() {
                 {/* CTA block */}
                 <div className="text-center pt-14 sm:pt-20 lg:pt-28">
                     <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-foreground tracking-tight leading-tight">
-                        <span className="block">Ready to experience smarter &</span>
-                        <span className="block">more accurate AI answers?</span>
+                        <span className="block">Ready to experience <span className="text-purple-600 dark:text-purple-400">smarter & more accurate AI answers</span>?</span>
                     </h2>
                     <p className="mx-auto mt-3 sm:mt-4 max-w-3xl md:max-w-4xl text-foreground/80 text-sm xs:text-base sm:text-lg leading-relaxed">
                         <span className="block">Gain an edge with our exclusive Promptbook, designed</span>

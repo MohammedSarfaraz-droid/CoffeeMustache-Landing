@@ -79,7 +79,7 @@ export default function VideoShowcase() {
             <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Heading */}
                 <div className="workflow-heading text-center mb-4 sm:mb-6">
-                    <h2 className="cards-head text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-foreground tracking-tight">
+                    <h2 className="cards-head text-[24px] sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-foreground tracking-tight">
                         Watch AI Fiesta Catch What <span className="text-purple-600 dark:text-purple-400">Others Miss</span>
                     </h2>
                     <div className="card-subhead text-base sm:text-lg text-foreground/70 mt-1">

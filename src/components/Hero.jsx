@@ -7,7 +7,7 @@ import AnimatedGradientButton from './ui/animated-gradient-button';
 const Hero = () => {
     return (
         <section className="relative w-full bg-transparent text-foreground mx-2 xs:mx-3 sm:mx-4 md:mx-0">
-            <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 py-8 xs:py-10 sm:py-12 lg:py-16 mt-4 xs:mt-6 sm:mt-0">
+            <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 py-26">
                 <div className="flex flex-col lg:flex-row items-center justify-between min-h-[70vh] xs:min-h-[75vh] sm:min-h-[80vh] gap-6 xs:gap-8 sm:gap-10 lg:gap-12">
 
                     {/* Hero Content - First on all screens */}

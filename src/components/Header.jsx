@@ -70,9 +70,9 @@ const Header = () => {
         </AnimatedGradientButton>
     );
     return (
-        <header className="fixed top-0 left-0 right-0 w-full bg-transparent text-foreground mx-2 xs:mx-3 sm:mx-0 z-50 mb-4 sm:mb-6">
-            <div className="container mx-auto px-2 sm:px-4 py-2 sm:py-3 md:py-5">
-                <div className="flex items-center justify-between flex-wrap gap-y-2">
+        <header className="fixed top-0 left-0 right-0 w-full bg-transparent text-foreground z-50 mb-4 sm:mb-6">
+            <div className="container mx-auto px-3 xs:px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-5">
+                <div className="flex items-center justify-between flex-wrap gap-y-2 w-full">
                     {/* Logo - Animated slide from far left */}
                     <motion.div
                         initial={{ opacity: 0.3, x: -120 }}
@@ -93,7 +93,7 @@ const Header = () => {
                     {/* Center Navigation with Lamp Effect - Hidden on mobile */}
                     <nav className="hidden lg:flex relative">
                         {/* Lamp Effect Container - Wider and more prominent */}
-                        <div className="absolute left-1/2 -translate-x-1/2 -top-28 w-[50rem] h-36 flex items-center justify-center overflow-visible pointer-events-none">
+                        <div className="absolute left-1/2 -translate-x-1/2 -top-28 w-[50rem] h-36 flex items-center justify-center overflow-visible pointer-events-none hidden sm:flex">
                             {/* Left lamp beam - premium slow animation */}
                             <motion.div
                                 initial={{ opacity: 0.4, width: "16rem" }}
@@ -108,7 +108,7 @@ const Header = () => {
                                     maskImage: `linear-gradient(to bottom, transparent 0%, white 35%, white 75%, transparent 100%), linear-gradient(to right, transparent 0%, white 25%, white 100%)`,
                                     maskComposite: 'intersect'
                                 }}
-                                className="absolute inset-auto right-1/2 h-36 w-[32rem] bg-gradient-conic from-purple-700 via-purple-500/80 to-transparent dark:from-purple-400 dark:via-purple-200/60 [--conic-position:from_70deg_at_center_top]"
+                                className="absolute inset-auto right-1/2 h-36 w-[32rem] bg-gradient-conic from-purple-700 via-purple-500/80 to-transparent dark:from-purple-400 dark:via-purple-200/60 [--conic-position:from_70deg_at_center_top] hidden sm:block"
                             />
 
                             {/* Right lamp beam - premium slow animation */}
@@ -125,7 +125,7 @@ const Header = () => {
                                     maskImage: `linear-gradient(to bottom, transparent 0%, white 35%, white 75%, transparent 100%), linear-gradient(to left, transparent 0%, white 25%, white 100%)`,
                                     maskComposite: 'intersect'
                                 }}
-                                className="absolute inset-auto left-1/2 h-36 w-[32rem] bg-gradient-conic from-transparent via-purple-500/80 to-purple-700 dark:via-purple-200/60 dark:to-purple-400 [--conic-position:from_290deg_at_center_top]"
+                                className="absolute inset-auto left-1/2 h-36 w-[32rem] bg-gradient-conic from-transparent via-purple-500/80 to-purple-700 dark:via-purple-200/60 dark:to-purple-400 [--conic-position:from_290deg_at_center_top] hidden sm:block"
                             />
 
                             {/* Additional light spread - delayed for premium feel */}
@@ -137,7 +137,7 @@ const Header = () => {
                                     duration: 1.0,
                                     ease: [0.25, 0.1, 0.25, 1],
                                 }}
-                                className="absolute z-20 h-16 w-[24rem] top-10 rounded-full bg-purple-600/40 dark:bg-purple-300/30 blur-2xl left-1/2 -translate-x-1/2"
+                                className="absolute z-20 h-16 w-[24rem] top-10 rounded-full bg-purple-600/40 dark:bg-purple-300/30 blur-2xl left-1/2 -translate-x-1/2 hidden sm:block"
                             />
 
                             {/* Central glow - luxurious slow reveal */}
@@ -149,7 +149,7 @@ const Header = () => {
                                     duration: 1.2,
                                     ease: [0.25, 0.1, 0.25, 1],
                                 }}
-                                className="absolute z-30 h-12 rounded-full bg-purple-600 dark:bg-purple-300 blur-xl top-10 left-1/2 -translate-x-1/2"
+                                className="absolute z-30 h-12 rounded-full bg-purple-600 dark:bg-purple-300 blur-xl top-10 left-1/2 -translate-x-1/2 hidden sm:block"
                             />
 
                             {/* Lamp line - elegant slow expansion */}
@@ -161,7 +161,7 @@ const Header = () => {
                                     duration: 1.6,
                                     ease: [0.25, 0.1, 0.25, 1],
                                 }}
-                                className="absolute z-50 h-0.5 bg-purple-700 dark:bg-purple-400 top-0 left-1/2 -translate-x-1/2"
+                                className="absolute z-50 h-0.5 bg-purple-700 dark:bg-purple-400 top-0 left-1/2 -translate-x-1/2 hidden sm:block"
                             />
                         </div>
 
@@ -270,7 +270,7 @@ const Header = () => {
 
                 {/* Mobile Menu */}
                 {isMobileMenuOpen && (
-                    <div className="lg:hidden absolute top-full left-0 right-0 z-50 mt-2 mx-4">
+                    <div className="lg:hidden absolute top-full left-0 right-0 z-50 mt-2 px-3 xs:px-4 sm:px-6">
                         <div className="bg-foreground/10 backdrop-blur-md border border-foreground/20 dark:bg-white/10 dark:border-white/20 rounded-2xl p-6 shadow-lg animate-in fade-in slide-in-from-top-2 duration-200">
                             {/* Navigation Links */}
                             <nav className="flex flex-col space-y-4 mb-6">

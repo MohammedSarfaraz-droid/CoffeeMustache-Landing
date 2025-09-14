@@ -87,7 +87,7 @@ const Pricing = () => {
 
     return (
         <section id="pricing" className="w-full py-10">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -107,15 +107,15 @@ const Pricing = () => {
                 </motion.div>
 
                 {/* Pricing Comparison */}
-                <div className="w-full mx-auto">
+                <div className="w-full max-w-full mx-auto">
                     {/* Responsive Layout */}
-                    <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 w-full max-w-7xl mx-auto">
+                    <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 w-full max-w-full mx-auto">
                         {/* Individual AI Subscriptions */}
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
-                            className="bg-black/5 dark:bg-black/30 backdrop-blur-sm border border-foreground/10 dark:border-white/20 rounded-xl lg:rounded-2xl p-4 sm:p-6 w-full max-w-md lg:max-w-none lg:w-[400px] flex-shrink-0"
+                            className="bg-black/5 dark:bg-black/30 backdrop-blur-sm border border-foreground/10 dark:border-white/20 rounded-xl lg:rounded-2xl p-4 sm:p-6 w-full max-w-full sm:max-w-md lg:max-w-none lg:w-[400px] flex-shrink-0"
                         >
                             <div className="text-center mb-4 sm:mb-6">
                                 <h3 className="text-base sm:text-lg font-medium lg:font-semibold text-foreground/90 mb-3 lg:mb-4">Individual AI Subscriptions</h3>
@@ -172,7 +172,7 @@ const Pricing = () => {
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, delay: 0.4 }}
-                            className="flex items-center justify-center relative w-fit lg:w-[120px] flex-shrink-0"
+                            className="flex items-center justify-center relative w-fit max-w-full lg:w-[120px] flex-shrink-0"
                         >
                             {/* Main VS circle with prominent glow */}
                             <div className="relative w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-700 dark:text-gray-300 font-black text-sm sm:text-base lg:text-lg tracking-wider shadow-lg border border-gray-300 dark:border-gray-600">
@@ -189,7 +189,7 @@ const Pricing = () => {
                             initial={{ opacity: 0, x: 50 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
-                            className="relative w-full max-w-md lg:max-w-none lg:w-[600px] flex-shrink-0"
+                            className="relative w-full max-w-full sm:max-w-md lg:max-w-none lg:w-[600px] flex-shrink-0"
                         >
                             {/* Outer glow effect */}
                             <div className="absolute inset-0 bg-gradient-to-br from-purple-400/10 to-violet-400/10 rounded-xl lg:rounded-2xl blur-xl scale-105"></div>
@@ -281,7 +281,7 @@ const Pricing = () => {
                                             repeat: Infinity,
                                             repeatDelay: 2
                                         }}
-                                        className="absolute top-24 left-1/2 transform -translate-x-1/2 w-[400px] h-80 bg-gradient-to-b from-purple-400/25 via-purple-400/15 to-transparent rounded-full blur-3xl"
+                                        className="absolute top-24 left-1/2 transform -translate-x-1/2 w-full max-w-full sm:max-w-md lg:w-[400px] h-80 bg-gradient-to-b from-purple-400/25 via-purple-400/15 to-transparent rounded-full blur-3xl"
                                     />
                                 </div>
 

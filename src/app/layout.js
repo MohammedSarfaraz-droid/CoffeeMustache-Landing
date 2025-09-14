@@ -26,14 +26,14 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased relative`} 
       >
         <ThemeProvider>
-          <div className="fixed inset-0 overflow-hidden z-0">
+          <div className="fixed inset-0 overflow-hidden z-0 max-w-full w-full left-0 right-0">
             <BackgroundRippleEffect
               rows={30}
               cols={40}
               cellSize={50}
             />
           </div>
-          <div className="fixed inset-0 overflow-hidden pointer-events-none z-10">
+          <div className="fixed inset-0 overflow-hidden pointer-events-none z-10 max-w-full w-full left-0 right-0">
             <PremiumStarsBackground />
           </div>
           <div className="relative z-20">

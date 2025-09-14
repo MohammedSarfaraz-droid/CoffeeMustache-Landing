@@ -81,8 +81,8 @@ export default function FAQs() {
                     viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight mb-6 sm:mb-8">
-                        Frequently Asked Questions (FAQs)
+                    <h2 className="text-center text-[24px] sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight mb-6 sm:mb-8">
+                        Frequently Asked Questions (<span className="text-purple-600 dark:text-purple-400">FAQs</span>)
                     </h2>
 
                     <div className="mx-auto max-w-5xl rounded-2xl md:rounded-3xl border border-purple-500/40 bg-black/5 dark:bg-black/40 backdrop-blur-sm p-5 sm:p-8 lg:p-12 shadow-[0_10px_40px_rgba(0,0,0,0.25)] overflow-hidden">
@@ -106,7 +106,7 @@ export default function FAQs() {
                                             aria-expanded={isOpen}
                                             aria-controls={panelId}
                                         >
-                                            <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-foreground/95">
+                                            <h3 className="text-base sm:text-xl lg:text-2xl font-semibold text-foreground/95">
                                                 {item.q}
                                             </h3>
                                             <span className="text-foreground/70 shrink-0">
@@ -120,7 +120,7 @@ export default function FAQs() {
                                         >
                                             <div className="overflow-hidden">
                                                 <motion.p
-                                                    className="mt-3 text-sm sm:text-base lg:text-lg text-foreground/70 leading-relaxed"
+                                                    className="mt-3 text-xs sm:text-base lg:text-lg text-foreground/70 leading-relaxed"
                                                     initial={{ opacity: 0 }}
                                                     animate={{ opacity: isOpen ? 1 : 0 }}
                                                     transition={{ duration: 0.25 }}
