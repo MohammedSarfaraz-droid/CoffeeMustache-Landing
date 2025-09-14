@@ -27,13 +27,16 @@ export default function RootLayout({ children }) {
         className={`${sora.variable} ${inter.variable} antialiased relative`} 
       >
         <ThemeProvider>
-          <div className="fixed inset-0 overflow-hidden z-0 max-w-full w-full left-0 right-0">
-            <BackgroundRippleEffect
-              rows={30}
-              cols={40}
-              cellSize={50}
-            />
+          {/* Top gradient overlay */}
+          <div className="fixed top-0 left-0 w-screen h-[40vh] z-10 pointer-events-none">
+            <div className="block dark:hidden w-full h-full" style={{background: "linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.3) 60%, rgba(255,255,255,0.0) 100%)"}} />
+            <div className="hidden dark:block w-full h-full" style={{background: "linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.0) 100%)"}} />
           </div>
+          <BackgroundRippleEffect
+            rows={8}
+            cols={27}
+            cellSize={90}
+          />
           <div className="fixed inset-0 overflow-hidden pointer-events-none z-10 max-w-full w-full left-0 right-0">
             <PremiumStarsBackground />
           </div>

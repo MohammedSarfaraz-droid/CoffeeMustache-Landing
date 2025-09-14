@@ -5,39 +5,33 @@ import { cn } from "@/lib/utils";
 export const BackgroundRippleEffect = ({
   rows = 8,
   cols = 27,
-  cellSize = 56
+  cellSize = 120 // Even larger grid boxes
 }) => {
   const [clickedCell, setClickedCell] = useState(null);
   const [rippleKey, setRippleKey] = useState(0);
   const ref = useRef(null);
 
   return (
-    <div
+    <DivGrid
       ref={ref}
       className={cn(
-        "absolute inset-0 h-full w-full",
-        "[--cell-border-color:rgba(203_213_225_0.05)] [--cell-fill-color:rgba(59_130_246_0.15)] [--cell-shadow-color:rgb(148_163_184)]",
-        "dark:[--cell-border-color:rgba(156_163_175_0.4)] dark:[--cell-fill-color:rgba(0,0,0,0.3)] dark:[--cell-shadow-color:transparent]"
-      )}>
-      <div className="relative h-auto w-auto overflow-hidden">
-        <div
-          className="pointer-events-none absolute inset-0 z-[2] h-full w-full overflow-hidden" />
-        <DivGrid
-          key={`base-${rippleKey}`}
-          className="mask-radial-from-20% mask-radial-at-top opacity-600"
-          rows={rows}
-          cols={cols}
-          cellSize={cellSize}
-          borderColor="var(--cell-border-color)"
-          fillColor="var(--cell-fill-color)"
-          clickedCell={clickedCell}
-          onCellClick={(row, col) => {
-            setClickedCell({ row, col });
-            setRippleKey((k) => k + 1);
-          }}
-          interactive />
-      </div>
-    </div>
+        "fixed top-0 left-0 w-screen h-screen z-0",
+        "mask-radial-from-20% mask-radial-at-top opacity-600",
+        "[--cell-border-color:rgba(30_41_59_0.12)] [--cell-fill-color:rgba(59_130_246_0.06)] [--cell-shadow-color:rgb(148_163_184)]",
+        "dark:[--cell-border-color:rgba(30_41_59_0.32)] dark:[--cell-fill-color:rgba(0,0,0,0.10)] dark:[--cell-shadow-color:transparent]"
+      )}
+      rows={rows}
+      cols={cols}
+      cellSize={cellSize}
+      borderColor="var(--cell-border-color)"
+      fillColor="var(--cell-fill-color)"
+      clickedCell={clickedCell}
+      onCellClick={(row, col) => {
+        setClickedCell({ row, col });
+        setRippleKey((k) => k + 1);
+      }}
+      interactive
+    />
   );
 };
 
