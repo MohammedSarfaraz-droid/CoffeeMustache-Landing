@@ -80,7 +80,7 @@ const DivGrid = ({
           <div
             key={idx}
             className={cn(
-              "cell relative border-[0.1px] opacity-40 transition-opacity duration-150 will-change-transform hover:opacity-80",
+              "cell relative border-[0.05px] opacity-40 transition-opacity duration-150 will-change-transform hover:opacity-80",
               clickedCell && "animate-cell-ripple [animation-fill-mode:none]",
               !interactive && "pointer-events-none"
             )}
