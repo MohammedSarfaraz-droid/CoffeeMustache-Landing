@@ -20,8 +20,8 @@ export const BackgroundRippleEffect = ({
         "mask-radial-from-10% mask-radial-at-top opacity-300",
         // Light mode: ultra-light lines
         "[--cell-border-color:rgba(30_41_59_0.02)] [--cell-fill-color:rgba(59_130_246_0.01)] [--cell-shadow-color:rgb(148_163_184)]",
-        // Dark mode: more visible lines
-        "dark:[--cell-border-color:rgba(255,255,255,0.18)] dark:[--cell-fill-color:rgba(0,0,0,0.10)] dark:[--cell-shadow-color:transparent]"
+        // Dark mode: more visible lines and background color
+        "dark:[--cell-border-color:rgba(255,255,255,0.18)] dark:[--cell-fill-color:rgba(0,0,0,0.10)] dark:[--cell-shadow-color:transparent] dark:bg-[#0C1117]"
       )}
       rows={rows}
       cols={cols}
