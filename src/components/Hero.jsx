@@ -56,7 +56,11 @@ const Hero = () => {
                                 >
                                     <h1 className="text-[36px] sm:text-[60px] font-bold leading-none">
                                         <span className="text-foreground">World's Most </span>
-                                        <span className="bg-gradient-to-r from-purple-500 via-pink-400 to-yellow-300 bg-clip-text text-transparent animate-gradient-x">Powerful</span>
+                                        <span
+                                            className="bg-gradient-to-r from-purple-700 via-pink-500 to-yellow-400 dark:from-purple-400 dark:via-pink-400 dark:to-yellow-300 bg-clip-text text-transparent animate-gradient-x [background-clip:text] [color:transparent]"
+                                        >
+                                            Powerful
+                                        </span>
                                     </h1>
                                 </motion.div>
 
@@ -71,7 +75,11 @@ const Hero = () => {
                                         }}
                                         className="text-[36px] sm:text-[60px] font-bold"
                                     >
-                                        <span className="bg-gradient-to-r from-yellow-300 via-pink-400 to-purple-500 bg-clip-text text-transparent animate-gradient-x">Coffee</span>
+                                        <span
+                                            className="bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-700 dark:from-yellow-300 dark:via-pink-400 dark:to-purple-400 bg-clip-text text-transparent animate-gradient-x [background-clip:text] [color:transparent]"
+                                        >
+                                            Coffee
+                                        </span>
                                     </motion.h1>
 
                                     {/* Animated Marquee Text */}
