@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from "motion/react";
-import { ThemeToggle } from '../ThemeToggle';
+import { ThemeToggle } from '../ui/ThemeToggle';
 import LoginButton from './HeaderLogin';
 
 const DesktopControls = () => {
