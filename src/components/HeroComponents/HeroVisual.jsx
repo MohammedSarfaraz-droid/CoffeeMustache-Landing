@@ -11,24 +11,10 @@ const HeroVisual = ({
     backgroundImage = "/Images/background-glare.avif"
 }) => {
     return (
-        <motion.div
-            initial={{ opacity: 0.2, x: 60, scale: 0.96, boxShadow: "0 0 0 rgba(0,0,0,0)" }}
-            animate={{ opacity: 1, x: 0, scale: 1, boxShadow: "0 8px 48px 0 rgba(80,0,120,0.18)" }}
-            transition={{
-                delay: 0.5,
-                duration: 1.2,
-                ease: [0.23, 1, 0.32, 1],
-            }}
+        <div
             className="flex-1 order-2 w-full"
         >
-            <motion.div
-                initial={{ y: 0 }}
-                animate={{ y: [0, -12, 0] }}
-                transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                }}
+            <div
                 className="relative w-full h-[200px] xs:h-[220px] sm:h-[260px] md:h-[320px] lg:h-[350px] xl:h-[400px] rounded-xl xs:rounded-2xl overflow-hidden bg-white/10 dark:bg-black/10 border-4 border-white/40 dark:border-white/20 backdrop-blur-xl mx-auto max-w-full xs:max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl overflow-x-hidden shadow-xl"
             >
                 {/* Background glare image inside card, glows through borders */}
@@ -42,9 +28,9 @@ const HeroVisual = ({
                         priority
                     />
                 </div>
-                
+
                 <div className="absolute inset-0 z-10 bg-white/10 dark:bg-black/20 backdrop-blur-2xl rounded-xl border border-white/20" />
-                
+
                 <video
                     autoPlay
                     loop
@@ -57,8 +43,8 @@ const HeroVisual = ({
                     <source src={videoSources.mp4} type="video/mp4" />
                     <source src={videoSources.webm} type="video/webm" />
                 </video>
-            </motion.div>
-        </motion.div>
+            </div>
+        </div>
     );
 };
 
