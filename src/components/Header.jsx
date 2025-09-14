@@ -1,9 +1,10 @@
 "use client";
-import { ThemeToggle } from './ThemeToggle';
-
 import React, { useState, useEffect } from 'react';
-import AnimatedGradientButton from './ui/animated-gradient-button';
-import { motion } from "motion/react";
+import Logo from './HeaderComponents/Logo';
+import DesktopNavigation from './HeaderComponents/DesktopNavigation';
+import DesktopControls from './HeaderComponents/DesktopControls';
+import MobileControls from './HeaderComponents/MobileControls';
+import MobileMenu from './HeaderComponents/MobileMenu';
 
 const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -61,279 +62,38 @@ const Header = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Navigation Links Component
-    const NavLinks = ({ isMobile = false }) => (
-        <>
-            {navItems.map((item) => {
-                const isActive = activeSection === item.href;
-                return (
-                    <a
-                        key={item.href}
-                        href={item.href}
-                        className={
-                            isMobile
-                                ? `text-foreground/90 hover:text-foreground dark:text-white/90 dark:hover:text-white transition-colors duration-200 py-2 text-lg font-medium border-b border-foreground/10 dark:border-white/10 last:border-0${isActive ? ' !text-xl !font-extrabold' : ''}`
-                                : `nav-link nav-txt w-nav-link text-[15px] xl:text-[16px] text-gray-800 hover:text-black dark:text-white/90 dark:hover:text-white transition-all duration-200 hover:scale-105 font-medium px-4 py-2 rounded-full${isActive ? ' !text-xl !font-extrabold' : ''}`
-                        }
-                        style={{ maxWidth: '1400px' }}
-                        onClick={(e) => handleSmoothScroll(e, item.href)}
-                    >
-                        {item.label}
-                    </a>
-                );
-            })}
-        </>
-    );
-
-    // Login Button Component
-    const LoginButton = ({ isMobile = false, onClick }) => (
-        <AnimatedGradientButton
-            size={isMobile ? "mobile" : "default"}
-            onClick={onClick}
-            variant="primary"
-            showArrow={true}
-            arrowDirection="right"
-        >
-            Log In
-        </AnimatedGradientButton>
-    );
     return (
         <header className="fixed top-0 left-0 right-0 w-full bg-transparent text-foreground z-50 mb-4 sm:mb-6">
             <div className="container mx-auto px-3 xs:px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-5">
                 <div className="flex items-center justify-between flex-wrap gap-y-2 w-full">
-                    {/* Logo - Animated slide from far left */}
-                    <motion.div
-                        initial={{ opacity: 0.3, x: -120 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                            delay: 0.3,
-                            duration: 0.8,
-                            ease: "easeInOut",
-                        }}
-                        className="flex items-center flex-shrink-0"
-                    >
-                        <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-foreground truncate">
-                            <span className="hidden sm:inline">Coffee Mustache</span>
-                            <span className="sm:hidden">CM</span>
-                        </h1>
-                    </motion.div>
+                    {/* Logo */}
+                    <Logo />
 
-                    {/* Center Navigation with Lamp Effect - Hidden on mobile */}
-                    <nav className="hidden lg:flex relative">
-                        {/* Lamp Effect Container - Wider and more prominent */}
-                        <div className="absolute left-1/2 -translate-x-1/2 -top-28 w-[50rem] h-36 flex items-center justify-center overflow-visible pointer-events-none hidden sm:flex">
-                            {/* Left lamp beam - premium slow animation */}
-                            <motion.div
-                                initial={{ opacity: 0.4, width: "16rem" }}
-                                animate={{ opacity: 1, width: "32rem" }}
-                                transition={{
-                                    delay: 0.4,
-                                    duration: 1.4,
-                                    ease: [0.25, 0.1, 0.25, 1],
-                                }}
-                                style={{
-                                    backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
-                                    maskImage: `linear-gradient(to bottom, transparent 0%, white 35%, white 75%, transparent 100%), linear-gradient(to right, transparent 0%, white 25%, white 100%)`,
-                                    maskComposite: 'intersect'
-                                }}
-                                className="absolute inset-auto right-1/2 h-36 w-[32rem] bg-gradient-conic from-purple-700 via-purple-500/80 to-transparent dark:from-purple-400 dark:via-purple-200/60 [--conic-position:from_70deg_at_center_top] hidden sm:block"
-                            />
+                    {/* Desktop Navigation */}
+                    <DesktopNavigation
+                        activeSection={activeSection}
+                        handleSmoothScroll={handleSmoothScroll}
+                        navItems={navItems}
+                    />
 
-                            {/* Right lamp beam - premium slow animation */}
-                            <motion.div
-                                initial={{ opacity: 0.4, width: "16rem" }}
-                                animate={{ opacity: 1, width: "32rem" }}
-                                transition={{
-                                    delay: 0.4,
-                                    duration: 1.4,
-                                    ease: [0.25, 0.1, 0.25, 1],
-                                }}
-                                style={{
-                                    backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
-                                    maskImage: `linear-gradient(to bottom, transparent 0%, white 35%, white 75%, transparent 100%), linear-gradient(to left, transparent 0%, white 25%, white 100%)`,
-                                    maskComposite: 'intersect'
-                                }}
-                                className="absolute inset-auto left-1/2 h-36 w-[32rem] bg-gradient-conic from-transparent via-purple-500/80 to-purple-700 dark:via-purple-200/60 dark:to-purple-400 [--conic-position:from_290deg_at_center_top] hidden sm:block"
-                            />
+                    {/* Desktop Controls */}
+                    <DesktopControls />
 
-                            {/* Additional light spread - delayed for premium feel */}
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.6 }}
-                                animate={{ opacity: 0.3, scale: 1.2 }}
-                                transition={{
-                                    delay: 0.8,
-                                    duration: 1.0,
-                                    ease: [0.25, 0.1, 0.25, 1],
-                                }}
-                                className="absolute z-20 h-16 w-[24rem] top-10 rounded-full bg-purple-600/40 dark:bg-purple-300/30 blur-2xl left-1/2 -translate-x-1/2 hidden sm:block"
-                            />
-
-                            {/* Central glow - luxurious slow reveal */}
-                            <motion.div
-                                initial={{ width: "8rem", opacity: 0.3 }}
-                                animate={{ width: "20rem", opacity: 0.8 }}
-                                transition={{
-                                    delay: 0.6,
-                                    duration: 1.2,
-                                    ease: [0.25, 0.1, 0.25, 1],
-                                }}
-                                className="absolute z-30 h-12 rounded-full bg-purple-600 dark:bg-purple-300 blur-xl top-10 left-1/2 -translate-x-1/2 hidden sm:block"
-                            />
-
-                            {/* Lamp line - elegant slow expansion */}
-                            <motion.div
-                                initial={{ width: "10rem" }}
-                                animate={{ width: "24rem" }}
-                                transition={{
-                                    delay: 0.2,
-                                    duration: 1.6,
-                                    ease: [0.25, 0.1, 0.25, 1],
-                                }}
-                                className="absolute z-50 h-0.5 bg-purple-700 dark:bg-purple-400 top-0 left-1/2 -translate-x-1/2 hidden sm:block"
-                            />
-                        </div>
-
-                        {/* Navigation Links with upward animation */}
-                        <motion.div
-                            initial={{ opacity: 0.5, y: 50 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{
-                                delay: 0.3,
-                                duration: 0.8,
-                                ease: "easeInOut",
-                            }}
-                            className="relative z-50 flex items-center space-x-6 xl:space-x-8 px-6 xl:px-8 py-3 rounded-full"
-                            style={{
-                                WebkitTextSizeAdjust: '100%',
-                                color: '#333',
-                                fontFamily: 'Inter, Arial, Helvetica Neue, Helvetica, sans-serif',
-                                fontSize: '14px',
-                                lineHeight: '20px',
-                                boxSizing: 'border-box',
-                                float: 'right',
-                                position: 'relative',
-                                gridColumnGap: '16px',
-                                gridRowGap: '16px',
-                                backdropFilter: 'blur(10px)',
-                                backgroundColor: '#ffffff1a',
-                                borderRadius: '99px',
-                                marginLeft: 'auto',
-                                paddingLeft: '16px',
-                                paddingRight: '16px',
-                                display: 'flex',
-                                boxShadow: 'inset .1px .1px 2px #ffffff80',
-                                border: '1px solid rgba(200,200,200,0.18)',
-                            }}
-                        >
-                            <NavLinks />
-                        </motion.div>
-                    </nav>
-
-                    {/* Theme Toggle and Login Button - Desktop - Animated slide from far right */}
-                    <motion.div
-                        initial={{ opacity: 0.3, x: 120 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                            delay: 0.3,
-                            duration: 0.8,
-                            ease: "easeInOut",
-                        }}
-                        className="hidden lg:flex items-center space-x-3 md:space-x-4"
-                    >
-                        <ThemeToggle />
-                        <LoginButton />
-                    </motion.div>
-
-                    {/* Mobile Menu Button and Theme Toggle - Animated slide from far right */}
-                    <motion.div
-                        initial={{ opacity: 0.3, x: 120 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                            delay: 0.3,
-                            duration: 0.8,
-                            ease: "easeInOut",
-                        }}
-                        className="lg:hidden flex items-center space-x-2"
-                    >
-                        <ThemeToggle />
-                        <button
-                            onClick={toggleMobileMenu}
-                            className="p-2 rounded-lg bg-foreground/10 backdrop-blur-md border border-foreground/20 dark:bg-white/10 dark:border-white/20 transition-colors duration-200 relative"
-                        >
-                            {/* Animated Hamburger to X Icon */}
-                            <div className="w-6 h-6 flex flex-col justify-center items-center">
-                                {/* Top line */}
-                                <motion.span
-                                    animate={isMobileMenuOpen ? {
-                                        rotate: 45,
-                                        y: 8,
-                                        backgroundColor: "currentColor"
-                                    } : {
-                                        rotate: 0,
-                                        y: 0,
-                                        backgroundColor: "currentColor"
-                                    }}
-                                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                                    className="block h-0.5 w-6 bg-foreground dark:bg-white rounded-full origin-center"
-                                />
-
-                                {/* Middle line */}
-                                <motion.span
-                                    animate={isMobileMenuOpen ? {
-                                        opacity: 0,
-                                        x: -20
-                                    } : {
-                                        opacity: 1,
-                                        x: 0
-                                    }}
-                                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                                    className="block h-0.5 w-6 bg-foreground dark:bg-white rounded-full mt-1.5 origin-center"
-                                />
-
-                                {/* Bottom line */}
-                                <motion.span
-                                    animate={isMobileMenuOpen ? {
-                                        rotate: -45,
-                                        y: -8,
-                                        backgroundColor: "currentColor"
-                                    } : {
-                                        rotate: 0,
-                                        y: 0,
-                                        backgroundColor: "currentColor"
-                                    }}
-                                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                                    className="block h-0.5 w-6 bg-foreground dark:bg-white rounded-full mt-1.5 origin-center"
-                                />
-                            </div>
-                        </button>
-                    </motion.div>
+                    {/* Mobile Controls */}
+                    <MobileControls
+                        isMobileMenuOpen={isMobileMenuOpen}
+                        toggleMobileMenu={toggleMobileMenu}
+                    />
                 </div>
 
-                {/* Mobile Menu Backdrop */}
-                {isMobileMenuOpen && (
-                    <div
-                        className="lg:hidden fixed inset-0 z-40 bg-black/20 dark:bg-black/40"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                    />
-                )}
-
                 {/* Mobile Menu */}
-                {isMobileMenuOpen && (
-                    <div className="lg:hidden absolute top-full left-0 right-0 z-50 mt-2 px-3 xs:px-4 sm:px-6">
-                        <div className="bg-foreground/10 backdrop-blur-md border border-foreground/20 dark:bg-white/10 dark:border-white/20 rounded-2xl p-6 shadow-lg animate-in fade-in slide-in-from-top-2 duration-200">
-                            {/* Navigation Links */}
-                            <nav className="flex flex-col space-y-4 mb-6">
-                                <NavLinks isMobile={true} />
-                            </nav>
-
-                            {/* Login Button */}
-                            <LoginButton
-                                isMobile={true}
-                                onClick={() => setIsMobileMenuOpen(false)}
-                            />
-                        </div>
-                    </div>
-                )}
+                <MobileMenu
+                    isMobileMenuOpen={isMobileMenuOpen}
+                    setIsMobileMenuOpen={setIsMobileMenuOpen}
+                    activeSection={activeSection}
+                    handleSmoothScroll={handleSmoothScroll}
+                    navItems={navItems}
+                />
             </div>
         </header>
     );
