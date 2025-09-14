@@ -4,7 +4,7 @@ const NavLinks = ({ isMobile = false, activeSection, handleSmoothScroll, navItem
     return (
         <>
             {navItems.map((item) => {
-                const isActive = activeSection === item.href;
+                const isActive = activeSection === item.href && activeSection !== null;
                 return (
                     <a
                         key={item.href}

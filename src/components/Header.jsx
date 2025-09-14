@@ -44,7 +44,7 @@ const Header = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            let found = navItems[0].href;
+            let found = null;
             for (const item of navItems) {
                 const el = document.querySelector(item.href);
                 if (el) {
