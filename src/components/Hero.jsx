@@ -54,8 +54,9 @@ const Hero = () => {
                                         ease: "easeInOut",
                                     }}
                                 >
-                                    <h1 className="text-[36px] sm:text-[60px] font-bold text-foreground leading-none">
-                                        World's Most Powerful
+                                    <h1 className="text-[36px] sm:text-[60px] font-bold leading-none">
+                                        <span className="text-foreground">World's Most </span>
+                                        <span className="bg-gradient-to-r from-purple-500 via-pink-400 to-yellow-300 bg-clip-text text-transparent animate-gradient-x">Powerful</span>
                                     </h1>
                                 </motion.div>
 
@@ -68,9 +69,9 @@ const Hero = () => {
                                             duration: 0.8,
                                             ease: "easeInOut",
                                         }}
-                                        className="text-[36px] sm:text-[60px] font-bold text-foreground"
+                                        className="text-[36px] sm:text-[60px] font-bold"
                                     >
-                                        Coffee
+                                        <span className="bg-gradient-to-r from-yellow-300 via-pink-400 to-purple-500 bg-clip-text text-transparent animate-gradient-x">Coffee</span>
                                     </motion.h1>
 
                                     {/* Animated Marquee Text */}
@@ -82,7 +83,7 @@ const Hero = () => {
                                             duration: 0.6,
                                             ease: "easeInOut",
                                         }}
-                                        className="relative overflow-hidden h-10 xs:h-11 sm:h-12 md:h-14 lg:h-16 w-32 xs:w-36 sm:w-42 md:w-48 lg:w-64 xl:w-72 rounded-lg bg-gradient-to-r from-purple-100/50 to-purple-200/50 dark:from-purple-900/30 dark:to-purple-800/30 border border-purple-200/30 dark:border-purple-700/30 backdrop-blur-sm mt-1"
+                                        className="relative overflow-hidden h-10 xs:h-11 sm:h-12 md:h-14 lg:h-16 w-32 xs:w-36 sm:w-42 md:w-48 lg:w-64 xl:w-72 rounded-lg bg-gradient-to-r from-purple-100/50 to-purple-200/50 dark:from-purple-900/30 dark:to-purple-800/30 border border-purple-200/30 dark:border-purple-700/30 backdrop-blur-sm mt-1 animate-gradient-x"
                                     >
                                         {/* Mobile Animation */}
                                         <motion.div
@@ -255,16 +256,25 @@ const Hero = () => {
 
                     {/* Hero Visual - Below text on small screens, right side on desktop */}
                     <motion.div
-                        initial={{ opacity: 0.3, x: 60 }}
-                        animate={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0.2, x: 60, scale: 0.96, boxShadow: "0 0 0 rgba(0,0,0,0)" }}
+                        animate={{ opacity: 1, x: 0, scale: 1, boxShadow: "0 8px 48px 0 rgba(80,0,120,0.18)" }}
                         transition={{
                             delay: 0.5,
-                            duration: 0.8,
-                            ease: "easeInOut",
+                            duration: 1.2,
+                            ease: [0.23, 1, 0.32, 1],
                         }}
                         className="flex-1 order-2 w-full"
                     >
-                        <div className="relative w-full h-[200px] xs:h-[220px] sm:h-[260px] md:h-[320px] lg:h-[350px] xl:h-[400px] rounded-xl xs:rounded-2xl overflow-hidden bg-white/10 dark:bg-black/10 border-4 border-white/40 dark:border-white/20 backdrop-blur-xl mx-auto max-w-full xs:max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl overflow-x-hidden">
+                        <motion.div
+                            initial={{ y: 0 }}
+                            animate={{ y: [0, -12, 0] }}
+                            transition={{
+                                duration: 4,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                            }}
+                            className="relative w-full h-[200px] xs:h-[220px] sm:h-[260px] md:h-[320px] lg:h-[350px] xl:h-[400px] rounded-xl xs:rounded-2xl overflow-hidden bg-white/10 dark:bg-black/10 border-4 border-white/40 dark:border-white/20 backdrop-blur-xl mx-auto max-w-full xs:max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl overflow-x-hidden shadow-xl"
+                        >
                             {/* Glass background image inside card, behind video */}
                             {/* Background glare image inside card, glows through borders */}
                             <div className="absolute inset-0 z-0">
@@ -290,7 +300,7 @@ const Hero = () => {
                                 <source src="https://cdn.prod.website-files.com/689597cc2d57ee623f5a24a2/689c3850b8428d2531672b1f_hero-transcode.mp4" type="video/mp4" />
                                 <source src="https://cdn.prod.website-files.com/689597cc2d57ee623f5a24a2/689c3850b8428d2531672b1f_hero-transcode.webm" type="video/webm" />
                             </video>
-                        </div>
+                        </motion.div>
                     </motion.div>
                 </div>
             </div>
