@@ -16,9 +16,12 @@ export const BackgroundRippleEffect = ({
       ref={ref}
       className={cn(
         "fixed top-0 left-0 w-screen h-screen z-0",
-        "mask-radial-from-20% mask-radial-at-top opacity-600",
-        "[--cell-border-color:rgba(30_41_59_0.12)] [--cell-fill-color:rgba(59_130_246_0.06)] [--cell-shadow-color:rgb(148_163_184)]",
-        "dark:[--cell-border-color:rgba(30_41_59_0.32)] dark:[--cell-fill-color:rgba(0,0,0,0.10)] dark:[--cell-shadow-color:transparent]"
+        // Reduce gradient effect on top and bottom
+        "mask-radial-from-10% mask-radial-at-top opacity-300",
+        // Light mode: ultra-light lines
+        "[--cell-border-color:rgba(30_41_59_0.02)] [--cell-fill-color:rgba(59_130_246_0.01)] [--cell-shadow-color:rgb(148_163_184)]",
+        // Dark mode: more visible lines
+        "dark:[--cell-border-color:rgba(255,255,255,0.18)] dark:[--cell-fill-color:rgba(0,0,0,0.10)] dark:[--cell-shadow-color:transparent]"
       )}
       rows={rows}
       cols={cols}
@@ -80,7 +83,9 @@ const DivGrid = ({
           <div
             key={idx}
             className={cn(
-              "cell relative border-[0.05px] opacity-40 transition-opacity duration-150 will-change-transform hover:opacity-80",
+              // Make lines ultra-light in light mode
+              "cell relative border-[0.5px] opacity-8 transition-opacity duration-150 will-change-transform hover:opacity-20",
+              "dark:opacity-60",
               clickedCell && "animate-cell-ripple [animation-fill-mode:none]",
               !interactive && "pointer-events-none"
             )}
