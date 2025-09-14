@@ -1,7 +1,7 @@
 "use client";
-
-import React, { useState } from 'react';
 import { ThemeToggle } from './ThemeToggle';
+
+import React, { useState, useEffect } from 'react';
 import AnimatedGradientButton from './ui/animated-gradient-button';
 import { motion } from "motion/react";
 
@@ -38,22 +38,50 @@ const Header = () => {
         { href: "#faqs", label: "FAQs" }
     ];
 
+    // Track active section for nav highlighting
+    const [activeSection, setActiveSection] = useState(navItems[0].href);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            let found = navItems[0].href;
+            for (const item of navItems) {
+                const el = document.querySelector(item.href);
+                if (el) {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top <= 120 && rect.bottom > 120) {
+                        found = item.href;
+                        break;
+                    }
+                }
+            }
+            setActiveSection(found);
+        };
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     // Navigation Links Component
     const NavLinks = ({ isMobile = false }) => (
         <>
-            {navItems.map((item) => (
-                <a
-                    key={item.href}
-                    href={item.href}
-                    className={`${isMobile
-                        ? "text-foreground/90 hover:text-foreground dark:text-white/90 dark:hover:text-white transition-colors duration-200 py-2 text-lg font-medium border-b border-foreground/10 dark:border-white/10 last:border-0"
-                        : "text-sm xl:text-base text-gray-800 hover:text-black dark:text-white/90 dark:hover:text-white transition-all duration-200 hover:scale-105 font-medium"
-                        }`}
-                    onClick={(e) => handleSmoothScroll(e, item.href)}
-                >
-                    {item.label}
-                </a>
-            ))}
+            {navItems.map((item) => {
+                const isActive = activeSection === item.href;
+                return (
+                    <a
+                        key={item.href}
+                        href={item.href}
+                        className={
+                            isMobile
+                                ? `text-foreground/90 hover:text-foreground dark:text-white/90 dark:hover:text-white transition-colors duration-200 py-2 text-lg font-medium border-b border-foreground/10 dark:border-white/10 last:border-0${isActive ? ' text-lg font-bold' : ''}`
+                                : `nav-link nav-txt w-nav-link text-[15px] xl:text-[16px] text-gray-800 hover:text-black dark:text-white/90 dark:hover:text-white transition-all duration-200 hover:scale-105 font-medium px-4 py-2 rounded-full${isActive ? ' text-lg font-bold' : ''}`
+                        }
+                        style={{ maxWidth: '1400px' }}
+                        onClick={(e) => handleSmoothScroll(e, item.href)}
+                    >
+                        {item.label}
+                    </a>
+                );
+            })}
         </>
     );
 
@@ -174,7 +202,28 @@ const Header = () => {
                                 duration: 0.8,
                                 ease: "easeInOut",
                             }}
-                            className="relative z-50 flex items-center space-x-6 xl:space-x-8 px-6 xl:px-8 py-3 rounded-full bg-white/95 border border-gray-200/50 shadow-lg shadow-black/10 dark:bg-gray-900/95 dark:border-gray-700/50 dark:shadow-lg dark:shadow-black/20 backdrop-blur-sm"
+                            className="relative z-50 flex items-center space-x-6 xl:space-x-8 px-6 xl:px-8 py-3 rounded-full"
+                            style={{
+                                WebkitTextSizeAdjust: '100%',
+                                color: '#333',
+                                fontFamily: 'Inter, Arial, Helvetica Neue, Helvetica, sans-serif',
+                                fontSize: '14px',
+                                lineHeight: '20px',
+                                boxSizing: 'border-box',
+                                float: 'right',
+                                position: 'relative',
+                                gridColumnGap: '16px',
+                                gridRowGap: '16px',
+                                backdropFilter: 'blur(10px)',
+                                backgroundColor: '#ffffff1a',
+                                borderRadius: '99px',
+                                marginLeft: 'auto',
+                                paddingLeft: '16px',
+                                paddingRight: '16px',
+                                display: 'flex',
+                                boxShadow: 'inset .1px .1px 2px #ffffff80',
+                                border: '1px solid rgba(200,200,200,0.18)',
+                            }}
                         >
                             <NavLinks />
                         </motion.div>
