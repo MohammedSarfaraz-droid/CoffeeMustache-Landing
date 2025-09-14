@@ -87,8 +87,8 @@ const Pricing = () => {
     ];
 
     return (
-        <section id="pricing" className="w-full py-10">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
+    <section id="pricing" className="w-full py-10 overflow-x-hidden overflow-y-hidden min-h-0">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full overflow-x-hidden overflow-y-hidden min-h-0">
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 40, scale: 0.98 }}
@@ -111,7 +111,7 @@ const Pricing = () => {
                 {/* Pricing Comparison */}
                 <div className="w-full max-w-full mx-auto">
                     {/* Responsive Layout */}
-                    <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 w-full max-w-full mx-auto">
+                    <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 w-full max-w-full mx-auto overflow-x-hidden overflow-y-hidden min-h-0">
                         {/* Individual AI Subscriptions */}
                         <motion.div
                             initial={{ opacity: 0, x: -60, scale: 0.97 }}
