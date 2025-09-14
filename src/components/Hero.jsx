@@ -54,7 +54,7 @@ const Hero = () => {
                                         ease: "easeInOut",
                                     }}
                                 >
-                                    <h1 className="text-[60px] font-bold text-foreground leading-none">
+                                    <h1 className="text-[36px] sm:text-[60px] font-bold text-foreground leading-none">
                                         World's Most Powerful
                                     </h1>
                                 </motion.div>
@@ -68,7 +68,7 @@ const Hero = () => {
                                             duration: 0.8,
                                             ease: "easeInOut",
                                         }}
-                                        className="text-[60px] font-bold text-foreground"
+                                        className="text-[36px] sm:text-[60px] font-bold text-foreground"
                                     >
                                         Coffee
                                     </motion.h1>
