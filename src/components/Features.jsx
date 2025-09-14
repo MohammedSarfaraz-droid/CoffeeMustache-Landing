@@ -101,7 +101,7 @@ export default function Features() {
                             Achieve Optimal Efficiency.
                         </span>
                     </h2>
-                    <p className="text-base sm:text-lg md:text-xl text-foreground/70 dark:text-white/70 max-w-2xl mx-auto">
+                    <p className="text-sm sm:text-lg md:text-xl text-foreground/70 dark:text-white/70 max-w-2xl mx-auto">
                         Every feature is designed to amplify your AI-powered productivity
                     </p>
                 </motion.div>

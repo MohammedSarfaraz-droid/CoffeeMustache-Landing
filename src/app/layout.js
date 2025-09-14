@@ -29,8 +29,8 @@ export default function RootLayout({ children }) {
         <ThemeProvider>
           {/* Top gradient overlay (reduced) */}
           <div className="fixed top-0 left-0 w-screen h-[40vh] z-10 pointer-events-none">
-            <div className="block dark:hidden w-full h-full" style={{background: "linear-gradient(180deg, rgba(255,255,255,0.70) 0%, rgba(255,255,255,0.15) 40%, rgba(255,255,255,0.0) 100%)"}} />
-            <div className="hidden dark:block w-full h-full" style={{background: "linear-gradient(180deg, rgba(12,17,23,0.70) 0%, rgba(12,17,23,0.15) 40%, rgba(12,17,23,0.0) 100%)"}} />
+            <div className="block dark:hidden w-full h-full" style={{background: "linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.32) 55%, rgba(255,255,255,0.0) 100%)"}} />
+            <div className="hidden dark:block w-full h-full" style={{background: "linear-gradient(180deg, rgba(12,17,23,0.92) 0%, rgba(12,17,23,0.32) 55%, rgba(12,17,23,0.0) 100%)"}} />
           </div>
           <BackgroundRippleEffect
             rows={8}

@@ -19,7 +19,7 @@ const PricingHeader = ({
                 <br className="hidden sm:block" />
                 <span className="block sm:inline">for <span className="text-purple-500">{highlightText}</span></span>
             </h2>
-            <div className="flex items-center justify-center gap-2 text-orange-500 bg-orange-500/10 px-3 sm:px-4 py-2 rounded-full inline-flex max-w-full">
+            <div className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 rounded-full inline-flex max-w-full backdrop-blur-md" style={{ color: '#e66b6b', backgroundColor: 'rgba(230,107,107,0.10)' }}>
                 <span className="text-base sm:text-lg flex-shrink-0">🔥</span>
                 <span className="text-xs sm:text-sm font-medium text-center">{promoText}</span>
             </div>
