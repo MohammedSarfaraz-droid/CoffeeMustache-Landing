@@ -87,7 +87,7 @@ const Pricing = () => {
     ];
 
     return (
-    <section id="pricing" className="w-full py-10 overflow-x-hidden overflow-y-hidden min-h-0">
+        <section id="pricing" className="w-full py-10 overflow-x-hidden overflow-y-hidden min-h-0">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full overflow-x-hidden overflow-y-hidden min-h-0">
                 {/* Header */}
                 <motion.div
