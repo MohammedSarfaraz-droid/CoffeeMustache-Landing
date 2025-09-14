@@ -9,6 +9,7 @@ import FAQs from "@/components/FAQs";
 import FooterCTA from "@/components/FooterCTA";
 import { useEffect, useState } from "react";
 import { LoadingScreen } from "@/components/ui/Loading-Screen";
+import BackToTopButton from "@/components/ui/BackToTopButton";
 
 
 export default function Home() {
@@ -43,6 +44,7 @@ export default function Home() {
       <VideoShowcase />
       <FAQs />
       <FooterCTA />
+      <BackToTopButton scrollThreshold={180} />
     </>
   );
 }
