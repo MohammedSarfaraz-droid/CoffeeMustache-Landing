@@ -41,17 +41,19 @@ const AIModelIcon2 = () => (
 );
 
 const AIModelBadge = ({ children, className = "" }) => (
-    <div className={`h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 rounded-lg xs:rounded-3xl sm:rounded-xl bg-foreground/10 dark:bg-white/20 border border-foreground/20 dark:border-white/30 backdrop-blur-sm text-foreground dark:text-white flex items-center justify-center ${className}`}>
+    <div
+        className={`w-[35px] h-[35px] rounded-full p-2.5 flex items-start justify-center text-left font-sans text-[14px] leading-[20px] bg-white/10 backdrop-blur-md box-border shadow-[inset_0.1px_0.1px_2px_#ffffff80] ${className}`}
+    >
         {children}
     </div>
 );
 
 const CheckPoint = ({ children }) => (
-    <div className="flex items-start gap-3">
+    <div className="flex items-start gap-3 mx-2 sm:mx-0">
         <div className="mt-1 shrink-0 text-green-500">
             <CheckIcon />
         </div>
-        <p className="text-foreground/80 dark:text-white/80">{children}</p>
+        <p className="text-sm sm:text-base md:text-lg text-foreground/80 dark:text-white/80">{children}</p>
     </div>
 );
 
@@ -107,35 +109,34 @@ export default function Features() {
                 {/* Four stacked cards with smooth staggered reveal */}
                 <div className="flex flex-col gap-4 md:gap-6">
                     {[0, 1, 2, 3].map((idx) => (
-                        <div className="flex justify-center" key={idx}>
+                        <div className="flex justify-center mx-2 sm:mx-0" key={idx}>
                             <motion.div
-                                className="relative overflow-hidden rounded-3xl sm:rounded-3xl md:rounded-xl xs:rounded-3xl backdrop-blur-md bg-gradient-to-br from-background/80 to-background/60 dark:from-white/10 dark:to-white/5 border border-foreground/10 dark:border-white/20 shadow-xl w-full max-w-none"
+                                className="relative overflow-hidden rounded-3xl sm:rounded-3xl md:rounded-xl xs:rounded-3xl w-full max-w-none shadow-xl border border-gray-100 dark:border-gray-800 backdrop-blur-md"
+                                style={{
+                                    background: "linear-gradient(120deg, rgba(168,85,247,0.10) 0%, rgba(255,255,255,0.60) 60%, rgba(255,255,255,0.30) 100%)"
+                                }}
                                 initial={{ opacity: 0, scale: 0.98, y: 24 }}
                                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.3 }}
                                 transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1], delay: idx * 0.08 }}
                             >
                                 <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-center h-full px-2 sm:px-4 md:px-8 pt-4 sm:pt-6 md:pt-8 lg:px-10 lg:pt-10 pb-0 lg:pb-10">
-                                    <div className="order-1 lg:order-1 text-center lg:text-left">
+                                    <div className="order-1 lg:order-1 text-center lg:text-left relative">
+                                        {/* Dotted background full area */}
+                                        <div className="absolute inset-0 -z-10 pointer-events-none rounded-2xl">
+                                            <div className="w-full h-full rounded-2xl bg-[radial-gradient(circle,_rgba(168,85,247,0.45)_1px,_transparent_1px)] bg-[length:7px_7px] opacity-80 dark:bg-[radial-gradient(circle,_rgba(168,85,247,0.7)_1px,_transparent_1px)]" />
+                                        </div>
                                         <div className="mb-4 sm:mb-6">
-                                            <div className="flex items-center gap-1 sm:gap-2 lg:gap-3 flex-wrap justify-center lg:justify-start">
+                                            <div className="flex items-center -space-x-1 sm:gap-2 lg:gap-3 flex-nowrap justify-start">
                                                 <AIModelBadge className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10"><AIModelIcon1 /></AIModelBadge>
                                                 <AIModelBadge className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10"><AIModelIcon2 /></AIModelBadge>
-                                                <AIModelBadge className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" viewBox="0 0 30 30" fill="none">
-                                                        <path d="M29.0971 5.97855C28.7923 5.82975 28.6603 6.11415 28.4827 6.25935C28.4215 6.30615 28.3699 6.36735 28.3183 6.42255C27.872 6.89895 27.3511 7.21095 26.6707 7.17375C25.6759 7.11855 24.8263 7.43055 24.0751 8.19135C23.9155 7.25295 23.3851 6.69375 22.5787 6.33375C22.1563 6.14655 21.7291 5.96055 21.4327 5.55375C21.2263 5.26455 21.1699 4.94175 21.0667 4.62495C21.0007 4.43295 20.9347 4.23735 20.7151 4.20495C20.4751 4.16775 20.3815 4.36815 20.2879 4.53615C19.9123 5.22255 19.7671 5.97855 19.7815 6.74415C19.8139 8.46735 20.5411 9.84015 21.9871 10.8157C22.1515 10.9273 22.1935 11.0401 22.1419 11.2033C22.0435 11.5393 21.9259 11.8657 21.8228 12.2029C21.7568 12.4177 21.6583 12.4633 21.4279 12.3709C20.6495 12.0364 19.9423 11.5557 19.3447 10.9549Z" fill="currentColor" className="text-blue-500" />
-                                                    </svg>
-                                                </AIModelBadge>
+                                                {/* Removed 3rd icon */}
                                                 <AIModelBadge className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10">
                                                     <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" viewBox="0 0 30 30" fill="none">
                                                         <path d="M24.3414 0.600098V9.3265H27.5994V21.7441H24.0774V29.4001L15.633 21.9673V29.3413H14.3238V21.9589L5.86981 29.4001V21.6421H2.39941V9.2257H5.86021V0.600098L14.3238 8.3929V0.828098H15.6318V8.6161L24.3414 0.600098Z" fill="currentColor" className="text-cyan-500" />
                                                     </svg>
                                                 </AIModelBadge>
-                                                <AIModelBadge className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" viewBox="0 0 30 30" fill="none">
-                                                        <path d="M6.25041 19.7461L11.9144 16.5697L12.0104 16.2937L11.9144 16.1401H11.6396L10.6916 16.0825L7.45401 15.9949L4.64721 15.8785L1.92801 15.7321L1.24281 15.5869L0.599609 14.7409L0.665609 14.3185L1.24161 13.9333L2.06481 14.0053L3.88881 14.1289L6.62241 14.3185L8.60481 14.4349L11.5436 14.7409H12.0104L12.0764 14.5525L11.9156 14.4349L11.792 14.3185L8.96241 12.4033L5.90001 10.3777L4.29681 9.2113L3.42801 8.6221L2.99121 8.0677L2.80161 6.8581L3.58881 5.9917L4.64601 6.0637L4.91601 6.1369L5.98761 6.9601L8.27721 8.7313L11.2664 10.9309L11.7044 11.2957L11.8784 11.1721L11.9012 11.0845L11.7044 10.7557Z" fill="currentColor" className="text-orange-500" />
-                                                    </svg>
-                                                </AIModelBadge>
+                                                {/* Removed 5th icon */}
                                                 <AIModelBadge className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10">
                                                     <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" viewBox="0 0 30 30" fill="none">
                                                         <path fillRule="evenodd" clipRule="evenodd" d="M11.7236 18.9482L21.2972 11.8718C21.7664 11.5238 22.4372 11.6594 22.6616 12.1982C23.8376 15.041 23.312 18.4562 20.9696 20.801C18.6284 23.1458 15.3692 23.6594 12.3908 22.4882L9.13761 23.9966C13.8044 27.1898 19.4708 26.4002 23.012 22.853C25.8212 20.0402 26.6912 16.2062 25.8776 12.749L25.8848 12.7574C24.7052 7.679 26.1752 5.6486 29.1848 1.4978C29.2568 1.3994 29.3288 1.301 29.3996 1.2002L25.4384 5.1662V5.1542L11.72 18.9506M9.74721 20.6678C6.39681 17.4638 6.97521 12.5066 9.83241 9.647C11.9456 7.5314 15.4088 6.6674 18.4316 7.937L21.6776 6.437C21.0029 5.9407 20.2648 5.5371 19.4828 5.237C17.517 4.43239 15.3571 4.22707 13.2748 4.64685C11.1926 5.06663 9.28096 6.09277 7.78041 7.5962C4.74081 10.6394 3.78441 15.3194 5.42601 19.313C6.65241 22.2974 4.64241 24.4082 2.61801 26.5394C1.89921 27.2954 1.17921 28.0502 0.599609 28.8494L9.74361 20.6714" fill="currentColor" />
