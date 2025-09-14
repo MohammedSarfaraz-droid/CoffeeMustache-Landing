@@ -1,14 +1,16 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from "motion/react";
 import AnimatedGradientButton from './ui/animated-gradient-button';
 
 const Hero = () => {
     return (
-        <section className="relative w-full bg-transparent text-foreground mx-2 xs:mx-3 sm:mx-4 md:mx-0">
-            <div className="container mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 py-26">
-                <div className="flex flex-col lg:flex-row items-center justify-between min-h-[70vh] xs:min-h-[75vh] sm:min-h-[80vh] gap-6 xs:gap-8 sm:gap-10 lg:gap-12">
+        <section className="relative w-full bg-transparent text-foreground overflow-x-hidden pt-20 xs:pt-28 sm:pt-36 md:pt-28 lg:pt-24 xl:pt-28 lg:px-20 xl:px-24 2xl:px-32">
+            {/* ...existing code... */}
+            <div className="container mx-auto px-3 xs:px-4 sm:px-6 md:px-8 relative z-20 w-full max-w-full overflow-x-hidden">
+                <div className="hero-main flex flex-col lg:flex-row items-center justify-between min-h-[70vh] xs:min-h-[75vh] sm:min-h-[80vh] gap-4 xs:gap-6 sm:gap-8 lg:gap-12 max-w-full overflow-x-hidden">
 
                     {/* Hero Content - First on all screens */}
                     <motion.div
@@ -19,15 +21,16 @@ const Hero = () => {
                             duration: 0.8,
                             ease: "easeInOut",
                         }}
-                        className="flex-1 order-1 text-center lg:text-left w-full"
+                        className="hero-content flex-1 order-1 text-center lg:text-left w-full"
                     >
-                        <div className="space-y-2 xs:space-y-3 sm:space-y-4">
+                        <div className="space-y-4 xs:space-y-5 sm:space-y-6">
                             {/* Curator Info Badge */}
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{
                                     delay: 0.7,
+
                                     duration: 0.6,
                                     ease: "easeInOut",
                                 }}
@@ -41,7 +44,7 @@ const Hero = () => {
                             </motion.div>
 
                             {/* Hero Heading */}
-                            <div className="space-y-0">
+                            <div className="space-y-2 xs:space-y-3 sm:space-y-4 md:space-y-0">
                                 <motion.div
                                     initial={{ opacity: 0, y: 30 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -261,61 +264,32 @@ const Hero = () => {
                         }}
                         className="flex-1 order-2 w-full"
                     >
-                        <div className="relative w-full h-[240px] xs:h-[260px] sm:h-[300px] md:h-[320px] lg:h-[350px] xl:h-[400px] rounded-xl xs:rounded-2xl overflow-hidden bg-gradient-to-br from-purple-100/20 to-purple-200/20 dark:from-purple-900/20 dark:to-purple-800/20 border border-purple-200/30 dark:border-purple-700/30 backdrop-blur-sm">
-                            {/* Background Image/Pattern */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-purple-100/50 dark:from-purple-900/30 dark:to-purple-800/30"></div>
-
-                            {/* Coffee Cup Illustration or Video Placeholder */}
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{
-                                        delay: 1.2,
-                                        duration: 1.0,
-                                        ease: "easeInOut",
-                                    }}
-                                    className="text-center space-y-4"
-                                >
-                                    {/* Coffee Cup Icon */}
-                                    <div className="w-20 h-20 xs:w-24 xs:h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 xl:w-48 xl:h-48 mx-auto bg-gradient-to-br from-purple-200 to-purple-300 dark:from-purple-700 dark:to-purple-600 rounded-full flex items-center justify-center shadow-2xl">
-                                        <svg className="w-10 h-10 xs:w-12 xs:h-12 sm:w-16 sm:h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 xl:w-24 xl:h-24 text-purple-700 dark:text-purple-200" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M2 21l.02-3.13c.14-2.51 2.14-4.58 4.65-4.87L9 13v-2c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2v2l2.33-.13c2.51.29 4.51 2.36 4.65 4.87L24 21H2zm16-4H6c-1.1 0-2-.9-2-2s.9-2 2-2h12c1.1 0 2 .9 2 2s-.9 2-2 2z" />
-                                            <path d="M12 9c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0-8c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3z" />
-                                        </svg>
-                                    </div>
-                                    <p className="text-sm xs:text-base sm:text-lg md:text-xl font-medium text-purple-700 dark:text-purple-300">
-                                        Premium Coffee Experience
-                                    </p>
-                                </motion.div>
+                        <div className="relative w-full h-[200px] xs:h-[220px] sm:h-[260px] md:h-[320px] lg:h-[350px] xl:h-[400px] rounded-xl xs:rounded-2xl overflow-hidden bg-white/10 dark:bg-black/10 border-4 border-white/40 dark:border-white/20 backdrop-blur-xl mx-auto max-w-full xs:max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl overflow-x-hidden">
+                            {/* Glass background image inside card, behind video */}
+                            {/* Background glare image inside card, glows through borders */}
+                            <div className="absolute inset-0 z-0">
+                                <Image
+                                    src="/Images/background-glare.avif"
+                                    alt="Background Glare"
+                                    fill
+                                    className="object-cover"
+                                    style={{ filter: 'blur(12px)', opacity: 0.9 }}
+                                    priority
+                                />
                             </div>
-
-                            {/* Floating Elements */}
-                            <motion.div
-                                animate={{
-                                    y: [0, -10, 0],
-                                    rotate: [0, 5, 0]
-                                }}
-                                transition={{
-                                    duration: 6,
-                                    repeat: Infinity,
-                                    ease: "easeInOut"
-                                }}
-                                className="absolute top-4 xs:top-6 sm:top-8 right-4 xs:right-6 sm:right-8 w-10 h-10 xs:w-12 xs:h-12 sm:w-16 sm:h-16 bg-purple-200/50 dark:bg-purple-700/50 rounded-full blur-sm"
-                            />
-                            <motion.div
-                                animate={{
-                                    y: [0, 15, 0],
-                                    rotate: [0, -5, 0]
-                                }}
-                                transition={{
-                                    duration: 8,
-                                    repeat: Infinity,
-                                    ease: "easeInOut",
-                                    delay: 1
-                                }}
-                                className="absolute bottom-6 xs:bottom-8 sm:bottom-12 left-4 xs:left-6 sm:left-8 w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 bg-purple-300/50 dark:bg-purple-600/50 rounded-full blur-sm"
-                            />
+                            <div className="absolute inset-0 z-10 bg-white/10 dark:bg-black/20 backdrop-blur-2xl rounded-xl border border-white/20" />
+                            <video
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                poster="https://cdn.prod.website-files.com/689597cc2d57ee623f5a24a2/689c3850b8428d2531672b1f_hero-poster-00001.jpg"
+                                className="relative z-20 w-full h-full object-cover rounded-xl"
+                                style={{ background: 'transparent', boxShadow: '0 0 40px rgba(0,255,200,0.3)' }}
+                            >
+                                <source src="https://cdn.prod.website-files.com/689597cc2d57ee623f5a24a2/689c3850b8428d2531672b1f_hero-transcode.mp4" type="video/mp4" />
+                                <source src="https://cdn.prod.website-files.com/689597cc2d57ee623f5a24a2/689c3850b8428d2531672b1f_hero-transcode.webm" type="video/webm" />
+                            </video>
                         </div>
                     </motion.div>
                 </div>
