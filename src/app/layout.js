@@ -1,16 +1,17 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Sora, Inter } from "next/font/google";
 import "./globals.css";
 import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect";
 import { PremiumStarsBackground } from "@/components/ui/premium-stars";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+
+const sora = Sora({
+  variable: "--font-heading",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-body",
   subsets: ["latin"],
 });
 
@@ -23,7 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased relative`} 
+        className={`${sora.variable} ${inter.variable} antialiased relative`} 
       >
         <ThemeProvider>
           <div className="fixed inset-0 overflow-hidden z-0 max-w-full w-full left-0 right-0">

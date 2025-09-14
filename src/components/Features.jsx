@@ -41,7 +41,7 @@ const AIModelIcon2 = () => (
 );
 
 const AIModelBadge = ({ children, className = "" }) => (
-    <div className={`h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 rounded-lg sm:rounded-xl bg-foreground/10 dark:bg-white/20 border border-foreground/20 dark:border-white/30 backdrop-blur-sm text-foreground dark:text-white flex items-center justify-center ${className}`}>
+    <div className={`h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 rounded-lg xs:rounded-3xl sm:rounded-xl bg-foreground/10 dark:bg-white/20 border border-foreground/20 dark:border-white/30 backdrop-blur-sm text-foreground dark:text-white flex items-center justify-center ${className}`}>
         {children}
     </div>
 );
@@ -56,7 +56,7 @@ const CheckPoint = ({ children }) => (
 );
 
 const VideoPlayer = ({ posterUrl, videoSources }) => (
-    <div className="relative overflow-hidden rounded-b-xl lg:rounded-b-none lg:rounded-br-xl shadow-2xl border border-foreground/10 dark:border-white/10">
+    <div className="relative overflow-hidden rounded-b-xl xs:rounded-b-3xl lg:rounded-b-none lg:rounded-br-xl shadow-2xl border border-foreground/10 dark:border-white/10">
         <video className="w-full h-40 sm:h-48 md:h-auto object-cover" poster={posterUrl} controls playsInline>
             {videoSources.map((src, i) => (
                 <source key={i} src={src} type={src.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
@@ -109,7 +109,7 @@ export default function Features() {
                     {[0, 1, 2, 3].map((idx) => (
                         <div className="flex justify-center" key={idx}>
                             <motion.div
-                                className="relative overflow-hidden rounded-xl backdrop-blur-md bg-gradient-to-br from-background/80 to-background/60 dark:from-white/10 dark:to-white/5 border border-foreground/10 dark:border-white/20 shadow-xl w-full max-w-none"
+                                className="relative overflow-hidden rounded-3xl sm:rounded-3xl md:rounded-xl xs:rounded-3xl backdrop-blur-md bg-gradient-to-br from-background/80 to-background/60 dark:from-white/10 dark:to-white/5 border border-foreground/10 dark:border-white/20 shadow-xl w-full max-w-none"
                                 initial={{ opacity: 0, scale: 0.98, y: 24 }}
                                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.3 }}
