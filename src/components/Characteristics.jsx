@@ -265,8 +265,8 @@ const AIModels = () => {
     }, []);
 
     return (
-        <section id="workflow" className="relative py-10 text-foreground overflow-hidden">
-            <div className="container mx-auto px-4">
+        <section id="workflow" className="relative py-8 text-foreground overflow-hidden">
+            <div className="container mx-auto px-2 sm:px-4">
                 {/* Section Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -275,7 +275,7 @@ const AIModels = () => {
                     transition={{ duration: 0.6 }}
                     className="text-center"
                 >
-                    <h2 className="text-[24px] sm:text-3xl md:text-4xl lg:text-[60px] font-bold mb-4">
+                    <h2 className="text-[20px] sm:text-2xl md:text-3xl lg:text-[48px] font-bold mb-2 sm:mb-3 md:mb-4 leading-tight">
                         Pick the best <span className="text-violet-600 dark:text-violet-400">characteristics</span>
                         <br />
                         of each <span className="text-violet-600 dark:text-violet-400">AI model</span>
