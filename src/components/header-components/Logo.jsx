@@ -26,7 +26,7 @@ const Logo = () => {
         alt="Coffee Mustache Logo"
         width={240}
         height={64}
-        className="object-contain"
+        className="object-contain w-[180px] h-[48px] sm:w-[240px] sm:h-[64px]"
       />
     </motion.div>
   );

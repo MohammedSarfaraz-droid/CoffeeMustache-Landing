@@ -37,12 +37,12 @@ const ResultRow = ({ tone = 'green', title, subtitle }) => {
             subtitle: 'text-emerald-500/70 dark:text-emerald-200/70',
         },
         yellow: {
-            bg: 'bg-amber-500/10',
-            border: 'border-amber-500/25',
-            ring: 'ring-amber-500/10',
+            bg: 'bg-purple-500/10',
+            border: 'border-purple-500/25',
+            ring: 'ring-purple-500/10',
             Icon: WarningBadge,
-            title: 'text-amber-600 dark:text-amber-300',
-            subtitle: 'text-amber-500/70 dark:text-amber-200/70',
+            title: 'text-purple-600 dark:text-purple-300',
+            subtitle: 'text-purple-500/70 dark:text-purple-200/70',
         },
         red: {
             bg: 'bg-rose-500/10',
@@ -73,17 +73,17 @@ export default function VideoShowcase() {
     return (
         <section className="video-section py-10 relative">
             <div className="absolute inset-0 pointer-events-none">
-                <div className="mx-auto max-w-7xl h-36 blur-3xl bg-teal-400/10 rounded-[4rem]" />
+                <div className="mx-auto max-w-7xl h-36 blur-3xl bg-purple-400/10 rounded-[4rem]" />
             </div>
 
             <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Heading */}
                 <div className="workflow-heading text-center mb-4 sm:mb-6">
                     <h2 className="cards-head text-[24px] sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-foreground tracking-tight">
-                        Watch AI Fiesta Catch What <span className="text-purple-600 dark:text-purple-400">Others Miss</span>
+                        See How Coffee Mustache <span className="text-purple-600 dark:text-purple-400">Transforms Your Café</span>
                     </h2>
                     <div className="card-subhead text-base sm:text-lg text-foreground/70 mt-1">
-                        Real question. Real answers. See which AI gets it right.
+                        From traditional POS limitations to AI-powered café growth. Watch the transformation.
                     </div>
                 </div>
 
@@ -96,21 +96,17 @@ export default function VideoShowcase() {
                         transition={{ duration: 0.6 }}
                         className="hero-div-left"
                     >
-                        <div className="relative hero-video-wrapper h-full">
-                            {/* Outer teal glow */}
-                            <div className="absolute -inset-3 rounded-3xl blur-2xl bg-gradient-to-r from-teal-400/25 via-cyan-400/20 to-emerald-400/25" />
+                        <div className="relative hero-video-wrapper h-full min-h-[320px] sm:min-h-[400px] lg:min-h-[480px] flex items-center justify-center w-full max-w-[600px] mx-auto">
+                            {/* Outer purple glow to match coffee theme */}
+                            <div className="absolute -inset-3 rounded-3xl blur-2xl bg-gradient-to-r from-purple-400/25 via-orange-400/20 to-yellow-400/25" />
 
-                            {/* Framed video */}
-                            <div className="relative video-wraper rounded-2xl border border-teal-400/30 bg-black/60 overflow-hidden shadow-[0_10px_40px_rgba(20,184,166,0.15)] h-full">
-                                <div className="w-full aspect-video sm:aspect-[16/9] lg:aspect-[16/11] xl:aspect-[16/9]">
-                                    <iframe
-                                        className="w-full h-full"
-                                        src="https://www.youtube.com/embed/-NG602qUUK0?rel=0&controls=1&autoplay=0&mute=0&start=0"
-                                        title="Watch AI Fiesta Catch What ChatGPT. Gemini, Claude, Perplexity, DeepSeek & Grok Miss"
-                                        allow="autoplay; encrypted-media"
-                                        allowFullScreen
-                                    />
-                                </div>
+                            {/* Dummy image card for replacement */}
+                            <div className="relative video-wraper rounded-2xl border border-purple-400/30 bg-black/60 overflow-hidden shadow-[0_10px_40px_rgba(245,158,11,0.15)] flex items-center justify-center h-full min-h-[320px] sm:min-h-[400px] lg:min-h-[480px] w-full max-w-[600px] mx-auto">
+                                <img
+                                    src="/public/Images/upload-image-ai.png"
+                                    alt="Demo Placeholder"
+                                    className="object-contain w-full h-full max-h-[400px] sm:max-h-[480px] max-w-[600px]"
+                                />
                             </div>
 
                             {/* Background image glow (decorative) */}
@@ -132,13 +128,30 @@ export default function VideoShowcase() {
                         className="div-block-29 w-full max-w-md lg:max-w-lg xl:max-w-xl justify-self-end"
                     >
                         <h3 className="heading-4 text-foreground text-xl sm:text-2xl font-extrabold mb-3">
-                            The Results Will Surprise You
+                            Why Cafés Choose Coffee Mustache
                         </h3>
 
                         <div className="video-result-wrapper space-y-3">
-                            <ResultRow tone="green" title="2 out of 6 got it right" subtitle="Gave accurate, actionable answers" />
-                            <ResultRow tone="yellow" title="3 out of 6 were incomplete" subtitle="Provided partial or incomplete information" />
-                            <ResultRow tone="red" title="1 out of 6 was wrong" subtitle="Gave misleading guidance" />
+                            <ResultRow
+                                tone="green"
+                                title="100% Café-Focused Platform"
+                                subtitle="Built exclusively for cafés, not generic restaurants or retail"
+                            />
+                            <ResultRow
+                                tone="green"
+                                title="AI Agents Execute Actions"
+                                subtitle="Beyond analytics—AI takes action to grow your business automatically"
+                            />
+                            <ResultRow
+                                tone="green"
+                                title="One-Stop Growth Solution"
+                                subtitle="Customer app + AI analytics + actionable insights in one platform"
+                            />
+                            <ResultRow
+                                tone="yellow"
+                                title="Zero Setup or Subscription Fees"
+                                subtitle="We only earn when your café grows—aligned incentives for success"
+                            />
                         </div>
 
                         {/* CTA */}
@@ -157,10 +170,10 @@ export default function VideoShowcase() {
                                     }
                                 }}
                             >
-                                Get smarter & accurate AI answers
+                                Start Growing Your Café Today
                             </AnimatedGradientButton>
                             <div className="text-block text-foreground/60 text-[11px] sm:text-xs mt-2">
-                                This is why comparing matters — get the full picture every time
+                                Join cafés already using AI to boost order value and customer loyalty
                             </div>
                         </div>
                     </motion.div>
