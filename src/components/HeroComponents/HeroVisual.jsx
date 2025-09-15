@@ -1,52 +1,87 @@
-import React from 'react';
-import Image from 'next/image';
-import { motion } from "motion/react";
+import React from "react";
 
-const HeroVisual = ({
-    videoSources = {
-        mp4: "https://cdn.prod.website-files.com/689597cc2d57ee623f5a24a2/689c3850b8428d2531672b1f_hero-transcode.mp4",
-        webm: "https://cdn.prod.website-files.com/689597cc2d57ee623f5a24a2/689c3850b8428d2531672b1f_hero-transcode.webm"
-    },
-    posterImage = "https://cdn.prod.website-files.com/689597cc2d57ee623f5a24a2/689c3850b8428d2531672b1f_hero-poster-00001.jpg",
-    backgroundImage = "/Images/background-glare.avif"
-}) => {
-    return (
-        <div className="flex-1 order-2 w-full">
-            <motion.div
-                initial={{ opacity: 0, x: 120, y: 40, scale: 0.96 }}
-                animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
-                transition={{ delay: 0.5, duration: 1.2, ease: [0.23, 1, 0.32, 1] }}
-                className="relative w-full h-[200px] xs:h-[220px] sm:h-[260px] md:h-[320px] lg:h-[350px] xl:h-[400px] rounded-xl xs:rounded-2xl overflow-hidden bg-white/10 dark:bg-black/10 border-4 border-white/40 dark:border-white/20 backdrop-blur-xl mx-auto max-w-full xs:max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl overflow-x-hidden shadow-xl"
-            >
-                {/* Background glare image inside card, glows through borders */}
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src={backgroundImage}
-                        alt="Background Glare"
-                        fill
-                        className="object-cover"
-                        style={{ filter: 'blur(12px)', opacity: 0.9 }}
-                        priority
+const HeroVisual = () => {
+  return (
+    <div className="relative w-full lg:w-4/10">
+      <div className="relative group">
+        {/* Gradient Border Container */}
+        <div className="absolute -inset-1 bg-gradient-to-br from-teal-400 via-blue-500 to-purple-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+
+        {/* Main Content Box */}
+        <div className="relative bg-slate-800/80 backdrop-blur-sm rounded-2xl p-8 border border-slate-700">
+          {/* Chat Interface Mockup */}
+          <div className="space-y-4">
+            {/* Chat Header */}
+            <div className="flex items-center justify-between pb-4 border-b border-slate-600">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full"></div>
+                <span className="text-white font-medium">
+                  Coffee Mustache Assistant
+                </span>
+              </div>
+              <div className="flex space-x-2">
+                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+              </div>
+            </div>
+
+            {/* Sample Question */}
+            <div className="bg-slate-700/50 rounded-lg p-4">
+              <p className="text-slate-300 text-sm mb-2">You asked:</p>
+              <p className="text-white">
+                What's the best way to brew coffee at home?
+              </p>
+            </div>
+
+            {/* Dummy Image Placeholder */}
+            <div className="bg-gradient-to-br from-slate-700 to-slate-600 rounded-lg h-48 flex items-center justify-center">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-teal-400 to-blue-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                  <svg
+                    className="w-8 h-8 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
                     />
+                  </svg>
                 </div>
+                <p className="text-slate-400 text-sm">AI Generated Response</p>
+              </div>
+            </div>
 
-                <div className="absolute inset-0 z-10 bg-white/10 dark:bg-black/20 backdrop-blur-2xl rounded-xl border border-white/20" />
-
-                <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    poster={posterImage}
-                    className="relative z-20 w-full h-full object-cover rounded-xl"
-                    style={{ background: 'transparent', boxShadow: '0 0 40px rgba(0,255,200,0.3)' }}
+            {/* Input Bar */}
+            <div className="flex items-center space-x-3 pt-4">
+              <div className="flex-1 bg-slate-700/50 rounded-full px-4 py-3 border border-slate-600">
+                <p className="text-slate-400 text-sm">Type your message...</p>
+              </div>
+              <button className="w-10 h-10 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full flex items-center justify-center hover:scale-105 transition-transform">
+                <svg
+                  className="w-5 h-5 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                    <source src={videoSources.mp4} type="video/mp4" />
-                    <source src={videoSources.webm} type="video/webm" />
-                </video>
-            </motion.div>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default HeroVisual;
