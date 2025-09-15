@@ -6,10 +6,10 @@ import HeroSubheading from "./HeroSubheading";
 import HeroCTA from "./HeroCTA";
 
 const HeroContent = ({
-  badgeText = "Built by Coffee Enthusiasts",
-  subheadingText = "Stop juggling coffee shops and subscriptions - Coffee Mustache gives you access to the world's best coffee experiences for just $12/month. That's almost half of what you'd pay for premium coffee subscriptions.",
-  buttonText = "Get Started Now",
-  ctaSubText = "Experience richer & more flavorful coffee",
+  badgeText = "Built Exclusively for Cafés",
+  subheadingText = "Coffee Mustache isn’t just another POS—it’s your AI-powered growth partner. We align with your success: our revenue grows only when your café grows.",
+  buttonText = "Join the Future of Cafés",
+  ctaSubText = "AI-Agentic insights & actions to boost loyalty and revenue",
   onButtonClick,
 }) => {
   return (
@@ -23,7 +23,7 @@ const HeroContent = ({
       }}
       className="hero-content flex-1 text-center lg:text-left w-full lg:w-6/10"
     >
-      <div className="space-y-4 xs:space-y-5 sm:space-y-6">
+      <div className="space-y-6 xs:space-y-7 sm:space-y-8 md:space-y-10 lg:space-y-6">
         <CuratorBadge text={badgeText} />
         <HeroHeading />
         <HeroSubheading text={subheadingText} />

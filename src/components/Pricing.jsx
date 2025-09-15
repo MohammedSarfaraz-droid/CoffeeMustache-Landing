@@ -1,53 +1,59 @@
 "use client";
 
-import React, { useState } from 'react';
-import PricingHeader from './PricingComponents/PricingHeader';
-import IndividualSubscriptionsCard from './PricingComponents/IndividualSubscriptionsCard';
-import VSDivider from './PricingComponents/VSDivider';
-import CoffeeMustacheCard from './PricingComponents/CoffeeMustacheCard';
-import { aiModels, aiModelFeatures, coffeeFeatures } from './PricingComponents/aiModelsData';
+import React, { useState } from "react";
+import PricingHeader from "./pricing-components/PricingHeader";
+import ExistingPosCard from "./pricing-components/ExistingPosCard";
+import VSDivider from "./pricing-components/VSDivider";
+import CoffeeMustacheCard from "./pricing-components/CoffeeMustacheCard";
+import {
+  aiModels,
+  existingPosFlaws,
+  coffeeFeatures,
+} from "./pricing-components/aiModelsData";
 
 const Pricing = () => {
-    const [selectedPlan, setSelectedPlan] = useState('monthly');
-    const [lampHovered, setLampHovered] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState("cmPOS");
+  const [lampHovered, setLampHovered] = useState(false);
 
-    return (
-        <section id="pricing" className="w-full py-10 overflow-x-hidden overflow-y-hidden min-h-0">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full overflow-x-hidden overflow-y-hidden min-h-0">
-                {/* Header */}
-                <PricingHeader
-                    title="Get 6 Premium AI Models for Half the Price of One"
-                    highlightText="Half the Price of One"
-                    promoText="Limited time: Save 90% compared to individual subscriptions"
-                />
+  return (
+    <section
+      id="pricing"
+      className="w-full py-10 overflow-x-hidden overflow-y-hidden min-h-0"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full overflow-x-hidden overflow-y-hidden min-h-0">
+        {/* Header */}
+        <PricingHeader
+          title="Two Ways to Grow Your Café with Coffee Mustache"
+          highlightText="Your Choice"
+          promoText="Layer on your existing POS for ₹999/month, or upgrade to Coffee Mustache POS at zero cost."
 
-                {/* Pricing Comparison */}
-                <div className="w-full max-w-full mx-auto">
-                    {/* Responsive Layout */}
-                    <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 w-full max-w-full mx-auto overflow-x-hidden overflow-y-hidden min-h-0">
-                        {/* Individual AI Subscriptions */}
-                        <IndividualSubscriptionsCard
-                            aiModels={aiModels}
-                            aiModelFeatures={aiModelFeatures}
-                        />
+        />
 
-                        {/* VS Divider */}
-                        <VSDivider />
+        {/* Pricing Comparison */}
+        <div className="w-full max-w-full mx-auto">
+          {/* Responsive Layout */}
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 w-full max-w-full mx-auto overflow-x-hidden overflow-y-hidden min-h-0">
+            {/* Individual AI Subscriptions */}
+            <ExistingPosCard
+              aiModels={aiModels}
+              existingPosFlaws={existingPosFlaws}
+            />
 
-                        {/* Coffee Mustache Plan */}
-                        <CoffeeMustacheCard
-                            selectedPlan={selectedPlan}
-                            setSelectedPlan={setSelectedPlan}
-                            lampHovered={lampHovered}
-                            setLampHovered={setLampHovered}
-                            coffeeFeatures={coffeeFeatures}
-                            aiModels={aiModels}
-                        />
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
+            {/* VS Divider */}
+            <VSDivider />
+
+            {/* Coffee Mustache Plan */}
+            <CoffeeMustacheCard
+              selectedPlan={selectedPlan}
+              setSelectedPlan={setSelectedPlan}
+              lampHovered={lampHovered}
+              setLampHovered={setLampHovered}
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Pricing;
