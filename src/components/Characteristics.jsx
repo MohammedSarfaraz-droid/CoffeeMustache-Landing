@@ -106,40 +106,40 @@ const CafeCharacteristics = () => {
             <g>
                 {/* Coffee Cup */}
                 <path d="M30 25h50v45c0 8.284-6.716 15-15 15H45c-8.284 0-15-6.716-15-15V25z"
-                    fill="url(#coffeeCup)" stroke="url(#cupBorder)" strokeWidth="2" />
+                    fill="url(#coffeeCupPurple)" stroke="url(#cupBorderPurple)" strokeWidth="2" />
                 {/* Handle */}
                 <path d="M80 35h8c6.627 0 12 5.373 12 12s-5.373 12-12 12h-8"
-                    fill="none" stroke="url(#cupBorder)" strokeWidth="3" strokeLinecap="round" />
+                    fill="none" stroke="url(#cupBorderPurple)" strokeWidth="3" strokeLinecap="round" />
                 {/* Steam */}
                 <path d="M40 20c0-3 2-5 2-8s-2-5-2-8"
-                    fill="none" stroke="url(#steam)" strokeWidth="2" strokeLinecap="round" className="animate-pulse" />
+                    fill="none" stroke="url(#steamPurple)" strokeWidth="2" strokeLinecap="round" className="animate-pulse" />
                 <path d="M50 20c0-3 2-5 2-8s-2-5-2-8"
-                    fill="none" stroke="url(#steam)" strokeWidth="2" strokeLinecap="round" className="animate-pulse" style={{ animationDelay: '0.5s' }} />
+                    fill="none" stroke="url(#steamPurple)" strokeWidth="2" strokeLinecap="round" className="animate-pulse" style={{ animationDelay: '0.5s' }} />
                 <path d="M60 20c0-3 2-5 2-8s-2-5-2-8"
-                    fill="none" stroke="url(#steam)" strokeWidth="2" strokeLinecap="round" className="animate-pulse" style={{ animationDelay: '1s' }} />
+                    fill="none" stroke="url(#steamPurple)" strokeWidth="2" strokeLinecap="round" className="animate-pulse" style={{ animationDelay: '1s' }} />
                 {/* Mustache */}
                 <path d="M35 75c5-3 10-3 15 0s10 3 15 0s10-3 15 0"
-                    fill="none" stroke="url(#mustache)" strokeWidth="4" strokeLinecap="round" />
-                <ellipse cx="42" cy="75" rx="3" ry="1.5" fill="url(#mustache)" />
-                <ellipse cx="58" cy="75" rx="3" ry="1.5" fill="url(#mustache)" />
-                <ellipse cx="74" cy="75" rx="3" ry="1.5" fill="url(#mustache)" />
+                    fill="none" stroke="url(#mustachePurple)" strokeWidth="4" strokeLinecap="round" />
+                <ellipse cx="42" cy="75" rx="3" ry="1.5" fill="url(#mustachePurple)" />
+                <ellipse cx="58" cy="75" rx="3" ry="1.5" fill="url(#mustachePurple)" />
+                <ellipse cx="74" cy="75" rx="3" ry="1.5" fill="url(#mustachePurple)" />
             </g>
             <defs>
-                <linearGradient id="coffeeCup" x1="30" y1="25" x2="80" y2="85">
-                    <stop offset="0%" stopColor="#8B4513" />
-                    <stop offset="100%" stopColor="#D2691E" />
+                <linearGradient id="coffeeCupPurple" x1="30" y1="25" x2="80" y2="85">
+                    <stop offset="0%" stopColor="#A78BFA" />
+                    <stop offset="100%" stopColor="#7C3AED" />
                 </linearGradient>
-                <linearGradient id="cupBorder" x1="30" y1="25" x2="80" y2="85">
-                    <stop offset="0%" stopColor="#654321" />
-                    <stop offset="100%" stopColor="#8B4513" />
+                <linearGradient id="cupBorderPurple" x1="30" y1="25" x2="80" y2="85">
+                    <stop offset="0%" stopColor="#7C3AED" />
+                    <stop offset="100%" stopColor="#A78BFA" />
                 </linearGradient>
-                <linearGradient id="steam" x1="0" y1="0" x2="0" y2="20">
-                    <stop offset="0%" stopColor="#E0E0E0" stopOpacity="0.8" />
-                    <stop offset="100%" stopColor="#F5F5F5" stopOpacity="0.3" />
+                <linearGradient id="steamPurple" x1="0" y1="0" x2="0" y2="20">
+                    <stop offset="0%" stopColor="#C4B5FD" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#A78BFA" stopOpacity="0.3" />
                 </linearGradient>
-                <linearGradient id="mustache" x1="35" y1="70" x2="80" y2="80">
-                    <stop offset="0%" stopColor="#2C1810" />
-                    <stop offset="100%" stopColor="#4A2C1A" />
+                <linearGradient id="mustachePurple" x1="35" y1="70" x2="80" y2="80">
+                    <stop offset="0%" stopColor="#7C3AED" />
+                    <stop offset="100%" stopColor="#A78BFA" />
                 </linearGradient>
             </defs>
         </svg>
@@ -292,9 +292,9 @@ const CafeCharacteristics = () => {
                     className="text-center"
                 >
                     <h2 className="text-[20px] sm:text-2xl md:text-3xl lg:text-[48px] font-bold mb-2 sm:mb-3 md:mb-4 leading-tight">
-                        The <span className="text-amber-600 dark:text-amber-400">growth partner</span>
+                        The <span className="text-purple-600 dark:text-purple-400">growth partner</span>
                         <br />
-                        built only for <span className="text-amber-600 dark:text-amber-400">cafés</span>
+                        built only for <span className="text-purple-600 dark:text-purple-400">cafés</span>
                     </h2>
                     <p className="text-sm sm:text-base md:text-lg text-foreground/70 max-w-3xl mx-auto">
                         Unlike generic POS systems, Coffee Mustache is designed exclusively for café success with AI-driven insights and actions.
@@ -339,8 +339,8 @@ const CafeCharacteristics = () => {
                             {/* Central Hub */}
                             <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
                                 <div className="relative">
-                                    <div className="absolute -inset-[180px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(217,119,6,0.10)_0%,rgba(245,158,11,0.06)_35%,transparent_70%)] blur-2xl" />
-                                    <div className="relative w-[420px] h-[420px] rounded-full bg-[radial-gradient(circle_at_center,rgba(217,119,6,0.08)_0%,rgba(245,158,11,0.05)_45%,transparent_60%)]" />
+                                    <div className="absolute -inset-[180px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(168,139,250,0.10)_0%,rgba(124,58,237,0.06)_35%,transparent_70%)] blur-2xl" />
+                                    <div className="relative w-[420px] h-[420px] rounded-full bg-[radial-gradient(circle_at_center,rgba(168,139,250,0.08)_0%,rgba(124,58,237,0.05)_45%,transparent_60%)]" />
                                     <div
                                         ref={hubRef}
                                         className={`absolute inset-0 m-[140px] rounded-full bg-white/80 dark:bg-background/80 backdrop-blur-sm border border-neutral-200/70 dark:border-white/10 flex items-center justify-center shadow-2xl transition-all duration-800 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
@@ -362,16 +362,16 @@ const CafeCharacteristics = () => {
                                                 if (el) cardRefs.current[feature.id] = el;
                                             }}
                                         >
-                                            <div className="relative bg-white/80 dark:bg-[#0C0F10]/90 backdrop-blur-md border border-neutral-200/70 dark:border-white/10 border-r-4 border-b-4 border-r-amber-500 border-b-amber-500 dark:border-r-amber-400 dark:border-b-amber-400 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-shadow">
+                                            <div className="relative bg-white/80 dark:bg-[#0C0F10]/90 backdrop-blur-md border border-neutral-200/70 dark:border-white/10 border-r-4 border-b-4 border-r-purple-500 border-b-purple-500 dark:border-r-purple-400 dark:border-b-purple-400 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-shadow">
                                                 <div className="flex items-start gap-3">
-                                                    <div className="relative p-3 bg-amber-700/80 bg-gradient-to-br from-amber-600/20 to-orange-600/20 dark:from-amber-500/25 dark:to-orange-500/25 rounded-xl border border-amber-600/20 dark:border-amber-400/25">{feature.icon}</div>
+                                                    <div className="relative p-3 bg-purple-700/80 bg-gradient-to-br from-purple-600/20 to-orange-600/20 dark:from-purple-500/25 dark:to-orange-500/25 rounded-xl border border-purple-600/20 dark:border-purple-400/25">{feature.icon}</div>
                                                     <div className="flex-1">
                                                         <h3 className="text-lg md:text-xl font-semibold">{feature.name}</h3>
-                                                        <div className="mt-1 inline-block px-3 py-1 bg-amber-500/10 dark:bg-amber-500/15 text-amber-700 dark:text-amber-300 text-xs md:text-sm rounded-full border border-amber-600/20 dark:border-amber-400/25">{feature.tag}</div>
+                                                        <div className="mt-1 inline-block px-3 py-1 bg-purple-500/10 dark:bg-purple-500/15 text-purple-700 dark:text-purple-300 text-xs md:text-sm rounded-full border border-purple-600/20 dark:border-purple-400/25">{feature.tag}</div>
                                                         <p className="mt-3 text-sm text-foreground/70 leading-relaxed">{feature.description}</p>
                                                     </div>
                                                 </div>
-                                                <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-r from-amber-400/10 to-orange-400/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-400/10 to-orange-400/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                                             </div>
                                         </div>
                                     );
@@ -390,16 +390,16 @@ const CafeCharacteristics = () => {
                                                 if (el) cardRefs.current[feature.id] = el;
                                             }}
                                         >
-                                            <div className="relative bg-white/80 dark:bg-[#0C0F10]/90 backdrop-blur-md border border-neutral-200/70 dark:border-white/10 border-r-4 border-b-4 border-r-amber-500 border-b-amber-500 dark:border-r-amber-400 dark:border-b-amber-400 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-shadow">
+                                            <div className="relative bg-white/80 dark:bg-[#0C0F10]/90 backdrop-blur-md border border-neutral-200/70 dark:border-white/10 border-r-4 border-b-4 border-r-purple-500 border-b-purple-500 dark:border-r-purple-400 dark:border-b-purple-400 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-shadow">
                                                 <div className="flex items-start gap-3">
-                                                    <div className="relative p-3 bg-amber-700/80 bg-gradient-to-br from-amber-600/20 to-orange-600/20 dark:from-amber-500/25 dark:to-orange-500/25 rounded-xl border border-amber-600/20 dark:border-amber-400/25">{feature.icon}</div>
+                                                    <div className="relative p-3 bg-purple-700/80 bg-gradient-to-br from-purple-600/20 to-orange-600/20 dark:from-purple-500/25 dark:to-orange-500/25 rounded-xl border border-purple-600/20 dark:border-purple-400/25">{feature.icon}</div>
                                                     <div className="flex-1">
                                                         <h3 className="text-lg md:text-xl font-semibold">{feature.name}</h3>
-                                                        <div className="mt-1 inline-block px-3 py-1 bg-amber-500/10 dark:bg-amber-500/15 text-amber-700 dark:text-amber-300 text-xs md:text-sm rounded-full border border-amber-600/20 dark:border-amber-400/25">{feature.tag}</div>
+                                                        <div className="mt-1 inline-block px-3 py-1 bg-purple-500/10 dark:bg-purple-500/15 text-purple-700 dark:text-purple-300 text-xs md:text-sm rounded-full border border-purple-600/20 dark:border-purple-400/25">{feature.tag}</div>
                                                         <p className="mt-3 text-sm text-foreground/70 leading-relaxed">{feature.description}</p>
                                                     </div>
                                                 </div>
-                                                <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-l from-amber-400/10 to-orange-400/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-l from-purple-400/10 to-orange-400/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                                             </div>
                                         </div>
                                     );
@@ -411,7 +411,7 @@ const CafeCharacteristics = () => {
                                 {[...Array(18)].map((_, i) => (
                                     <span
                                         key={i}
-                                        className={`absolute w-1 h-1 rounded-full bg-amber-500/30 dark:bg-amber-400/40 ${isVisible ? 'animate-pulse' : ''}`}
+                                        className={`absolute w-1 h-1 rounded-full bg-purple-500/30 dark:bg-purple-400/40 ${isVisible ? 'animate-pulse' : ''}`}
                                         style={{
                                             left: `${(i * 53) % 100}%`,
                                             top: `${(i * 37) % 100}%`,
@@ -436,12 +436,12 @@ const CafeCharacteristics = () => {
                                     transition={{ duration: 0.5, delay: idx * 0.08 }}
                                     className="w-full"
                                 >
-                                    <div className="relative bg-white/80 dark:bg-[#0C0F10]/90 backdrop-blur-md border border-neutral-200/70 dark:border-white/10 border-r-4 border-b-4 border-r-amber-500 border-b-amber-500 dark:border-r-amber-400 dark:border-b-amber-400 rounded-2xl p-3 sm:p-4 shadow-xl min-h-[110px] hover:shadow-2xl transition-shadow">
+                                    <div className="relative bg-white/80 dark:bg-[#0C0F10]/90 backdrop-blur-md border border-neutral-200/70 dark:border-white/10 border-r-4 border-b-4 border-r-purple-500 border-b-purple-500 dark:border-r-purple-400 dark:border-b-purple-400 rounded-2xl p-3 sm:p-4 shadow-xl min-h-[110px] hover:shadow-2xl transition-shadow">
                                         <div className="flex items-start gap-2 sm:gap-3">
-                                            <div className="relative p-2 sm:p-3 bg-amber-700/80 bg-gradient-to-br from-amber-600/20 to-orange-600/20 dark:from-amber-500/25 dark:to-orange-500/25 rounded-xl border border-amber-600/20 dark:border-amber-400/25">{feature.icon}</div>
+                                            <div className="relative p-2 sm:p-3 bg-purple-700/80 bg-gradient-to-br from-purple-600/20 to-orange-600/20 dark:from-purple-500/25 dark:to-orange-500/25 rounded-xl border border-purple-600/20 dark:border-purple-400/25">{feature.icon}</div>
                                             <div className="flex-1">
                                                 <h3 className="text-base sm:text-lg md:text-xl font-semibold">{feature.name}</h3>
-                                                <div className="mt-1 inline-block px-2 sm:px-3 py-1 bg-amber-500/10 dark:bg-amber-500/15 text-amber-700 dark:text-amber-300 text-xs sm:text-sm rounded-full border border-amber-600/20 dark:border-amber-400/25">{feature.tag}</div>
+                                                <div className="mt-1 inline-block px-2 sm:px-3 py-1 bg-purple-500/10 dark:bg-purple-500/15 text-purple-700 dark:text-purple-300 text-xs sm:text-sm rounded-full border border-purple-600/20 dark:border-purple-400/25">{feature.tag}</div>
                                                 <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-foreground/70 leading-relaxed">{feature.description}</p>
                                             </div>
                                         </div>
