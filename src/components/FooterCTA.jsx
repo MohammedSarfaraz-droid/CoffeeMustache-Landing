@@ -176,8 +176,8 @@ export default function FooterCTA() {
         </div>
 
         {/* Bottom row: links left, copyright right */}
-        <div className="mt-6 w-full flex flex-col-reverse sm:flex-row items-center sm:items-center justify-between gap-3 sm:gap-4 text-foreground/70 text-sm">
-          <div className="flex items-center gap-4 flex-wrap">
+        <div className="mt-6 w-full flex flex-col-reverse sm:flex-row items-center sm:items-center justify-between gap-3 sm:gap-4 text-foreground/70 text-xs sm:text-sm">
+          <div className="flex items-center gap-3 sm:gap-4 whitespace-nowrap overflow-x-auto w-full sm:w-auto justify-center sm:justify-start">
             {typeof window !== 'undefined' && window.location.pathname !== '/' && (
               <a href="/" className="hover:text-foreground">
                 Home
