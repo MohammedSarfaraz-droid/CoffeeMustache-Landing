@@ -87,8 +87,8 @@ export default function VideoShowcase() {
                     </div>
                 </div>
 
-                <div className="video-wrapper grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-stretch lg:[grid-template-columns:1.15fr_0.85fr] xl:[grid-template-columns:1.2fr_0.8fr]">
-                    {/* Left: Video */}
+                <div className="video-wrapper flex flex-col lg:grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-stretch lg:[grid-template-columns:1.15fr_0.85fr] xl:[grid-template-columns:1.2fr_0.8fr]">
+                    {/* Image Card */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -100,13 +100,18 @@ export default function VideoShowcase() {
                             {/* Outer purple glow to match coffee theme */}
                             <div className="absolute -inset-3 rounded-3xl blur-2xl bg-gradient-to-r from-purple-400/25 via-orange-400/20 to-yellow-400/25" />
 
-                            {/* Dummy image card for replacement */}
-                            <div className="relative video-wraper rounded-2xl border border-purple-400/30 bg-black/60 overflow-hidden shadow-[0_10px_40px_rgba(245,158,11,0.15)] flex items-center justify-center h-full min-h-[320px] sm:min-h-[400px] lg:min-h-[480px] w-full max-w-[600px] mx-auto">
-                                <img
-                                    src="/public/Images/upload-image-ai.png"
-                                    alt="Demo Placeholder"
-                                    className="object-contain w-full h-full max-h-[400px] sm:max-h-[480px] max-w-[600px]"
-                                />
+                            {/* Styled placeholder card for image */}
+                            <div className="relative video-wraper rounded-2xl border border-purple-400/30 bg-gradient-to-br from-purple-700/70 via-purple-500/60 to-orange-400/40 overflow-hidden shadow-[0_10px_40px_rgba(245,158,11,0.15)] flex flex-col items-center justify-center h-full min-h-[320px] sm:min-h-[400px] lg:min-h-[480px] w-full max-w-[600px] mx-auto animate-in fade-in duration-500">
+                                <div className="flex flex-col items-center justify-center gap-3">
+                                    {/* Image icon */}
+                                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" className="mb-2">
+                                        <rect x="3" y="5" width="18" height="14" rx="3" fill="#A78BFA" fillOpacity="0.18" />
+                                        <circle cx="8" cy="10" r="2" fill="#fff" />
+                                        <path d="M3 19l5-5a2 2 0 0 1 2.8 0l2.2 2.2a2 2 0 0 0 2.8 0l5-5" stroke="#A78BFA" strokeWidth="2" strokeLinecap="round" />
+                                    </svg>
+                                    <div className="text-lg font-semibold text-white text-center drop-shadow-lg">Image Coming Soon</div>
+                                    <div className="text-xs text-white/80 text-center max-w-xs">A showcase image will be added here soon. Stay tuned for a visual preview of Coffee Mustache in action!</div>
+                                </div>
                             </div>
 
                             {/* Background image glow (decorative) */}
@@ -119,15 +124,15 @@ export default function VideoShowcase() {
                         </div>
                     </motion.div>
 
-                    {/* Right: Results + CTA */}
+                    {/* Text Cards & CTA: Always below image on <1024px screens */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="div-block-29 w-full max-w-md lg:max-w-lg xl:max-w-xl justify-self-end"
+                        className="div-block-29 w-full max-w-md lg:max-w-lg xl:max-w-xl justify-self-end mt-4 lg:mt-0 mx-auto"
                     >
-                        <h3 className="heading-4 text-foreground text-xl sm:text-2xl font-extrabold mb-3">
+                        <h3 className="heading-4 text-foreground text-xl sm:text-2xl font-extrabold mb-3 text-center lg:text-left">
                             Why Cafés Choose Coffee Mustache
                         </h3>
 
