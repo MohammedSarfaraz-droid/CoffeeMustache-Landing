@@ -3,6 +3,40 @@ import { motion } from "motion/react";
 import Image from "next/image";
 
 const HeroVisual = () => {
+  // Drag and drop & file select logic (now only in preview section)
+  const [dragActive, setDragActive] = React.useState(false);
+  const [selectedFile, setSelectedFile] = React.useState(null);
+  const inputRef = React.useRef(null);
+
+  const handleDrag = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.type === "dragenter" || e.type === "dragover") {
+      setDragActive(true);
+    } else if (e.type === "dragleave") {
+      setDragActive(false);
+    }
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragActive(false);
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      setSelectedFile(e.dataTransfer.files[0]);
+    }
+  };
+
+  const handleChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setSelectedFile(e.target.files[0]);
+    }
+  };
+
+  const handleButtonClick = () => {
+    inputRef.current?.click();
+  };
+
   return (
     <div className="relative w-full lg:w-4/10">
       <div className="group">
@@ -39,20 +73,33 @@ const HeroVisual = () => {
               </div>
             </div>
 
-            {/* Upload Report Section */}
+            {/* Upload Report Section (removed file input, just info) */}
             <div className="bg-gray-100/80 dark:bg-slate-800/60 rounded-lg p-4 border border-cyan-400/20">
               <p className="text-cyan-600 dark:text-cyan-300 text-sm mb-2">
                 Upload Café Report
               </p>
-              <p className="text-gray-900 dark:text-gray-300">
-                Sales, menu performance, or staff data — AI will analyze and
-                generate growth actions.
+              <p className="text-gray-900 dark:text-gray-300 mb-2">
+                Sales, menu performance, or staff data — AI will analyze and generate growth actions.
               </p>
             </div>
 
-            {/* AI Insights Preview */}
-            <div className="bg-gray-50/80 dark:bg-slate-800/40 border border-teal-700/40 rounded-lg h-48 flex items-center justify-center">
-              <div className="text-center">
+            {/* AI Insights Preview with drag-and-drop and file select */}
+            <form
+              className={`bg-gray-50/80 dark:bg-slate-800/40 border border-teal-700/40 rounded-lg h-48 flex items-center justify-center transition-all ${dragActive ? 'border-2 border-purple-500 bg-purple-50/40 dark:bg-purple-900/30' : ''}`}
+              onDragEnter={handleDrag}
+              onDragOver={handleDrag}
+              onDragLeave={handleDrag}
+              onDrop={handleDrop}
+              onSubmit={e => e.preventDefault()}
+            >
+              <div className="text-center w-full">
+                <input
+                  ref={inputRef}
+                  type="file"
+                  accept=".xlsx,.xls,.csv,.pdf,.doc,.docx,.ppt,.pptx,.txt,.jpg,.jpeg,.png,.gif"
+                  style={{ display: 'none' }}
+                  onChange={handleChange}
+                />
                 <div className="w-16 h-16 bg-transparent rounded-lg mx-auto mb-4 flex items-center justify-center">
                   <Image
                     src="/Images/ai-logo.png"
@@ -62,11 +109,21 @@ const HeroVisual = () => {
                     className="object-contain"
                   />
                 </div>
+                <button
+                  type="button"
+                  className="px-4 py-2 rounded bg-cyan-500 text-white hover:bg-cyan-600 transition-colors text-sm mb-2"
+                  onClick={handleButtonClick}
+                >
+                  Select File
+                </button>
+                <span className="block text-xs text-gray-700 dark:text-gray-300 mb-2">
+                  or drag & drop here
+                </span>
                 <p className="text-cyan-600 dark:text-cyan-300 text-sm">
-                  Please upload an image
+                  {selectedFile ? `File ready: ${selectedFile.name}` : 'No file selected'}
                 </p>
               </div>
-            </div>
+            </form>
 
             {/* Input Bar */}
             <div className="flex items-center space-x-3 pt-4">
