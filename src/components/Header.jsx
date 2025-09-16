@@ -32,17 +32,30 @@ const Header = () => {
         }
     };
 
-    // Navigation items data
-    const navItems = [
-        { href: "#features", label: "Features" },
-        { href: "#pricing", label: "Pricing" },
-        { href: "#faqs", label: "FAQs" }
-    ];
+    // Detect if current page is home
+    const [isHome, setIsHome] = useState(true);
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            setIsHome(window.location.pathname === '/');
+        }
+    }, []);
 
-    // Track active section for nav highlighting
-    const [activeSection, setActiveSection] = useState(navItems[0].href);
+    // Navigation items data
+    const navItems = isHome
+        ? [
+            { href: "#features", label: "Features" },
+            { href: "#pricing", label: "Pricing" },
+            { href: "#faqs", label: "FAQs" }
+        ]
+        : [
+            { href: "/", label: "Home" }
+        ];
+
+    // Track active section for nav highlighting (only for home)
+    const [activeSection, setActiveSection] = useState(isHome ? navItems[0].href : "/");
 
     useEffect(() => {
+        if (!isHome) return;
         const handleScroll = () => {
             let found = null;
             for (const item of navItems) {
@@ -60,7 +73,7 @@ const Header = () => {
         window.addEventListener('scroll', handleScroll);
         handleScroll();
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [isHome]);
 
     return (
         <header className="fixed top-0 left-0 right-0 w-full bg-white dark:bg-slate-950 md:bg-transparent dark:md:bg-transparent text-foreground z-50 mb-4 sm:mb-6">
