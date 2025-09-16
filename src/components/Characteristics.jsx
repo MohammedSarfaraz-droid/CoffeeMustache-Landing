@@ -303,9 +303,9 @@ const CafeCharacteristics = () => {
 
                 {/* Responsive layout */}
                 <div className="relative mx-auto w-full">
-                    {/* Large screens: show logo, connectors, left/right stacks */}
-                    <div className="hidden lg:block">
-                        <div ref={containerRef} className="relative mx-auto max-w-7xl h-[760px]">
+                    {/* Desktop layout: show logo, connectors, left/right stacks only for xl and up */}
+                    <div className="hidden xl:block">
+                        <div ref={containerRef} className="relative mx-auto max-w-7xl h-[760px] xl:max-w-[1400px] xl:h-[820px]" style={{ maxWidth: '100vw' }}>
                             {/* Connector overlay (SVG) */}
                             <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox={`0 0 ${containerSize.width} ${containerSize.height}`} preserveAspectRatio="none">
                                 <defs>
@@ -425,7 +425,7 @@ const CafeCharacteristics = () => {
                     </div>
 
                     {/* Medium and small screens: stacked cards */}
-                    <div className="block lg:hidden">
+                    <div className="block xl:hidden">
                         <div className="flex flex-col items-center gap-4 sm:gap-6 w-full max-w-2xl mx-auto mt-8">
                             {cafeFeatures.map((feature, idx) => (
                                 <motion.div
