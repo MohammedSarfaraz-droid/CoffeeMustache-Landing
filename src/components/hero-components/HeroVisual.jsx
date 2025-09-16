@@ -131,26 +131,28 @@ const HeroVisual = () => {
                 </span>
                 <div className="text-cyan-600 dark:text-cyan-300 text-sm">
                   {selectedFiles.length > 0
-                    ? <ul className="list-disc list-inside text-left inline-block mx-auto">
-                      {selectedFiles.map((file, idx) => (
-                        <li key={idx} className="flex items-center gap-2">
-                          <span>{file.name}</span>
-                          <button
-                            type="button"
-                            className="ml-1 text-gray-400 hover:text-red-500 focus:outline-none"
-                            aria-label={`Remove ${file.name}`}
-                            onClick={e => {
-                              e.stopPropagation();
-                              handleRemoveFile(idx);
-                            }}
-                          >
-                            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                            </svg>
-                          </button>
-                        </li>
-                      ))}
-                    </ul>
+                    ? <div className={`${selectedFiles.length > 3 ? 'max-h-20 overflow-y-auto' : ''} scrollbar-thin scrollbar-thumb-cyan-500 scrollbar-track-transparent hover:scrollbar-thumb-cyan-400 transition-colors`}>
+                        <ul className="list-disc list-inside text-left inline-block mx-auto space-y-1">
+                          {selectedFiles.map((file, idx) => (
+                            <li key={idx} className="flex items-center gap-2">
+                              <span>{file.name}</span>
+                              <button
+                                type="button"
+                                className="ml-1 text-gray-400 hover:text-red-500 focus:outline-none"
+                                aria-label={`Remove ${file.name}`}
+                                onClick={e => {
+                                  e.stopPropagation();
+                                  handleRemoveFile(idx);
+                                }}
+                              >
+                                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                                </svg>
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     : 'No file selected'}
                 </div>
               </div>
