@@ -74,34 +74,15 @@ export const Card = ({ card, index }) => {
             className={`${isEvenCard ? "lg:order-1" : "lg:order-2"} relative`}
           >
             <div
-              className="relative backdrop-blur-sm rounded-2xl p-6 lg:p-10 border-2 min-h-[220px] lg:min-h-[320px] flex items-center justify-center transition-transform duration-500 hover:scale-[1.02]"
+              className="bg-transparent dark:bg-transparent relative backdrop-blur-sm rounded-2xl p-6 lg:p-10 border-2 min-h-[220px] lg:min-h-[320px] flex items-center justify-center transition-transform duration-500 hover:scale-[1.02]"
               style={{
                 borderColor: `${card.color}50`,
-                background: `
-                  linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9)),
-                  radial-gradient(circle at 30% 70%, ${card.color}15, transparent 60%),
-                  radial-gradient(circle at 70% 30%, ${card.color}15, transparent 60%)
-                `,
                 boxShadow: `0 8px 24px ${card.color}33`,
               }}
             >
-              <div className="text-center space-y-3 lg:space-y-4">
-                <div
-                  className="w-16 h-16 lg:w-20 lg:h-20 mx-auto rounded-full flex items-center justify-center text-3xl lg:text-4xl shadow-lg"
-                  style={{
-                    background: `linear-gradient(135deg, ${card.color}20, ${card.color}10)`,
-                    boxShadow: `0 4px 16px ${card.color}25`,
-                  }}
-                >
-                  {card.icon}
-                </div>
-                <p
-                  className="text-xs lg:text-sm font-medium"
-                  style={{ color: card.color }}
-                >
-                  {card.preview}
-                </p>
-              </div>
+              <span className="text-gray-600 dark:text-slate-300 text-lg md:text-2xl lg:text-4xl xl:text-5xl font-medium">
+                400 x 225
+              </span>
             </div>
           </div>
         </div>
