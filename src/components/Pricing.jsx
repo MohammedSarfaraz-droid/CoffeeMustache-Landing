@@ -18,7 +18,7 @@ const Pricing = () => {
   return (
     <section
       id="pricing"
-      className="w-full py-10 min-h-0"
+      className="w-full py-10 min-h-0 overflow-x-clip"
     >
       <div className="container mx-auto px-4 sm:px-6 xl:px-8 max-w-7xl w-full">
         {/* Header */}
@@ -29,7 +29,7 @@ const Pricing = () => {
         />
 
         {/* Pricing Comparison */}
-        <div className="w-full mx-auto">
+  <div className="w-full mx-auto overflow-x-clip">
           {/* Responsive Layout: stacked until 1280px (xl), row above */}
           <div className="flex flex-col xl:flex-row items-center justify-center gap-6 xl:gap-8 w-full mx-auto">
             {/* Individual AI Subscriptions */}
