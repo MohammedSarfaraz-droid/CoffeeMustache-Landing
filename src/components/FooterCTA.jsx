@@ -178,14 +178,19 @@ export default function FooterCTA() {
         {/* Bottom row: links left, copyright right */}
         <div className="mt-6 w-full flex flex-col-reverse sm:flex-row items-center sm:items-center justify-between gap-3 sm:gap-4 text-foreground/70 text-sm">
           <div className="flex items-center gap-4 flex-wrap">
-            <a href="/privacy" className="hover:text-foreground">
+            {typeof window !== 'undefined' && window.location.pathname !== '/' && (
+              <a href="/" className="hover:text-foreground">
+                Home
+              </a>
+            )}
+            <a href="/privacy-policy" className="hover:text-foreground">
               Privacy Policy
             </a>
-            <a href="/terms" className="hover:text-foreground">
-              Terms & Conditions
+            <a href="/terms-of-service" className="hover:text-foreground">
+              Terms Of Service
             </a>
-            <a href="/about" className="hover:text-foreground">
-              About Us
+            <a href="/data-deletion" className="hover:text-foreground">
+              Data Deletion
             </a>
           </div>
           <div className="opacity-80 sm:text-right w-full sm:w-auto text-center sm:text-right">
