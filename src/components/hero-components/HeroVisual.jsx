@@ -5,7 +5,12 @@ import Image from "next/image";
 const HeroVisual = () => {
   // Drag and drop & file select logic (now only in preview section)
   const [dragActive, setDragActive] = React.useState(false);
-  const [selectedFile, setSelectedFile] = React.useState(null);
+  const [selectedFiles, setSelectedFiles] = React.useState([]);
+
+  // Remove file by index
+  const handleRemoveFile = (idx) => {
+    setSelectedFiles(files => files.filter((_, i) => i !== idx));
+  };
   const inputRef = React.useRef(null);
 
   const handleDrag = (e) => {
@@ -22,14 +27,24 @@ const HeroVisual = () => {
     e.preventDefault();
     e.stopPropagation();
     setDragActive(false);
-    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      setSelectedFile(e.dataTransfer.files[0]);
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      setSelectedFiles(prev => {
+        const newFiles = Array.from(e.dataTransfer.files);
+        // Avoid duplicates by name
+        const allFiles = [...prev, ...newFiles.filter(f => !prev.some(p => p.name === f.name && p.size === f.size))];
+        return allFiles;
+      });
     }
   };
 
   const handleChange = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      setSelectedFile(e.target.files[0]);
+    if (e.target.files && e.target.files.length > 0) {
+      setSelectedFiles(prev => {
+        const newFiles = Array.from(e.target.files);
+        // Avoid duplicates by name
+        const allFiles = [...prev, ...newFiles.filter(f => !prev.some(p => p.name === f.name && p.size === f.size))];
+        return allFiles;
+      });
     }
   };
 
@@ -98,6 +113,7 @@ const HeroVisual = () => {
                   ref={inputRef}
                   type="file"
                   accept=".xlsx,.xls,.csv,.pdf,.doc,.docx,.ppt,.pptx,.txt,.jpg,.jpeg,.png,.gif"
+                  multiple
                   style={{ display: 'none' }}
                   onChange={handleChange}
                 />
@@ -113,9 +129,30 @@ const HeroVisual = () => {
                 <span className="block text-xs text-gray-700 dark:text-gray-300 mb-2">
                   Click or drag & drop file here
                 </span>
-                <p className="text-cyan-600 dark:text-cyan-300 text-sm">
-                  {selectedFile ? `File ready: ${selectedFile.name}` : 'No file selected'}
-                </p>
+                <div className="text-cyan-600 dark:text-cyan-300 text-sm">
+                  {selectedFiles.length > 0
+                    ? <ul className="list-disc list-inside text-left inline-block mx-auto">
+                      {selectedFiles.map((file, idx) => (
+                        <li key={idx} className="flex items-center gap-2">
+                          <span>{file.name}</span>
+                          <button
+                            type="button"
+                            className="ml-1 text-gray-400 hover:text-red-500 focus:outline-none"
+                            aria-label={`Remove ${file.name}`}
+                            onClick={e => {
+                              e.stopPropagation();
+                              handleRemoveFile(idx);
+                            }}
+                          >
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M6 6l8 8M14 6l-8 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                            </svg>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                    : 'No file selected'}
+                </div>
               </div>
             </form>
 
