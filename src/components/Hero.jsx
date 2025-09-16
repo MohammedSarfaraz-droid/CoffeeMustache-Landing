@@ -10,7 +10,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="w-full pt-32 lg:pt-24 px-6 lg:px-20">
+    <section className="w-full pt-24 lg:pt-24 px-6 lg:px-20 pb-14">
       <div className="flex flex-col lg:flex-row items-center justify-between min-h-[83vh] gap-8 lg:gap-12 relative z-10">
         <HeroContent
           badgeText="Built Exclusively for Cafés"
