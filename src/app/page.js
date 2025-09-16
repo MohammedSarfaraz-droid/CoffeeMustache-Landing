@@ -8,12 +8,15 @@ import VideoShowcase from "@/components/VideoShowcase";
 import FAQs from "@/components/FAQs";
 import FooterCTA from "@/components/FooterCTA";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import BackgroundBeamsWithCollision from "@/components/hero-components/BackgroundBeams";
 
 export default function Home() {
   return (
     <>
       <Header />
-      <Hero />
+      <BackgroundBeamsWithCollision>
+        <Hero />
+      </BackgroundBeamsWithCollision>
       <Features />
       <Pricing />
       <Characteristics />

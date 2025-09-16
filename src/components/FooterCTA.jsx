@@ -7,7 +7,7 @@ import AnimatedGradientButton from './ui/animated-gradient-button';
 
 export default function FooterCTA() {
     return (
-        <footer className="relative overflow-hidden">
+        <footer className="relative overflow-hidden pb-10">
             {/* Background image */}
             <Image
                 src="/Images/footerbg.png"

@@ -27,7 +27,7 @@ const PricingToggle = ({ selectedPlan, setSelectedPlan }) => {
           onClick={() => setSelectedPlan(plan.id)}
           className={`relative p-3 lg:p-4 rounded-xl border transition-all duration-200 ${
             selectedPlan === plan.id
-              ? "bg-purple-500/10 border-purple-400/40 text-foreground"
+              ? "bg-purple-500/30 border-purple-400 text-foreground"
               : "bg-foreground/[0.02] dark:bg-white/[0.02] border-foreground/[0.08] dark:border-white/[0.08] text-foreground/70"
           }`}
         >

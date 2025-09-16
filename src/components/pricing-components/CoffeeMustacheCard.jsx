@@ -15,7 +15,7 @@ const CoffeeMustacheCard = ({
   // Define plan-specific data
 
   const currentPlan =
-  selectedPlan === "existingPOS" ? plans.existingPOS : plans.cmPOS;
+    selectedPlan === "existingPOS" ? plans.existingPOS : plans.cmPOS;
 
   return (
     <motion.div
@@ -80,15 +80,15 @@ const CoffeeMustacheCard = ({
           transition={{ duration: 0.5, delay: 0.22, ease: "easeOut" }}
         >
           <motion.div
-            whileHover={{ scale: 1.04, boxShadow: "0 0 32px 8px #a78bfa" }}
+            whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
             <AnimatedGradientButton
-              size="default"
+              size="lg"
               variant="primary"
               showArrow={true}
               arrowDirection="right"
-              className="w-full text-white font-bold py-3 sm:py-4 px-6 lg:px-8 rounded-xl text-sm sm:text-base transition-all duration-200 shadow-lg shadow-purple-500/20"
+              className="w-full px-6 py-3"
             >
               Get Started Now
             </AnimatedGradientButton>

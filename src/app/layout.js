@@ -3,6 +3,7 @@ import "./globals.css";
 import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect";
 import { PremiumStarsBackground } from "@/components/ui/premium-stars";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import BlurryBlobTwo from "@/components/BlurryBlobTwo";
 
 const sora = Sora({
   variable: "--font-heading",
@@ -26,12 +27,13 @@ export default function RootLayout({ children }) {
         className={`${sora.variable} ${inter.variable} antialiased relative`}
       >
         <ThemeProvider>
-          <div className="absolute inset-0 z-20">
-            <div className="absolute top-10 left-2 w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 bg-purple-500/10 dark:bg-purple-500/20 rounded-full blur-3xl" />
-            <div className="absolute bottom-10 right-2 w-56 h-56 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-purple-400/5 dark:bg-purple-400/10 rounded-full blur-3xl" />
-          </div>
+          <BlurryBlobTwo
+            className="rounded-xl opacity-45"
+            firstBlobColor="bg-blue-400"
+            secondBlobColor="bg-purple-400"
+          />
           {/* Top gradient overlay (reduced) */}
-          <div className="fixed top-0 left-0 w-screen h-[40vh] z-10 pointer-events-none">
+          {/* <div className="fixed top-0 left-0 w-screen h-[40vh] z-10 pointer-events-none">
             <div
               className="block dark:hidden w-full h-full"
               style={{
@@ -46,7 +48,7 @@ export default function RootLayout({ children }) {
                   "linear-gradient(180deg, rgba(12,17,23,0.92) 0%, rgba(12,17,23,0.32) 55%, rgba(12,17,23,0.0) 100%)",
               }}
             />
-          </div>
+          </div> */}
           <BackgroundRippleEffect rows={8} cols={27} cellSize={90} />
           <div className="fixed inset-0 overflow-hidden pointer-events-none z-10 max-w-full w-full left-0 right-0">
             <PremiumStarsBackground />

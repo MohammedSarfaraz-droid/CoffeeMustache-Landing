@@ -141,7 +141,7 @@ export const plans = {
   existingPOS: {
     title: "Layer on Existing POS",
     price: "₹999/month",
-    description: "Keep your current POS and add AI-powered insights & reports.",
+    description: "Keep your current POS and add AI-powered insights & reports. which helps you boost your cafe's growth.",
     features: [
       "AI agents monitor data from your POS",
       "Actionable insights & performance reports",
