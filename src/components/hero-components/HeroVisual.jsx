@@ -85,11 +85,12 @@ const HeroVisual = () => {
 
             {/* AI Insights Preview with drag-and-drop and file select */}
             <form
-              className={`bg-gray-50/80 dark:bg-slate-800/40 border border-teal-700/40 rounded-lg h-48 flex items-center justify-center transition-all ${dragActive ? 'border-2 border-purple-500 bg-purple-50/40 dark:bg-purple-900/30' : ''}`}
+              className={`bg-gray-50/80 dark:bg-slate-800/40 border-4 border-dotted border-teal-700 dark:border-purple-400 rounded-lg h-48 flex items-center justify-center transition-all cursor-pointer ${dragActive ? 'border-purple-500 bg-purple-50/40 dark:bg-purple-900/30' : ''}`}
               onDragEnter={handleDrag}
               onDragOver={handleDrag}
               onDragLeave={handleDrag}
               onDrop={handleDrop}
+              onClick={handleButtonClick}
               onSubmit={e => e.preventDefault()}
             >
               <div className="text-center w-full">
@@ -109,15 +110,8 @@ const HeroVisual = () => {
                     className="object-contain"
                   />
                 </div>
-                <button
-                  type="button"
-                  className="px-4 py-2 rounded bg-cyan-500 text-white hover:bg-cyan-600 transition-colors text-sm mb-2"
-                  onClick={handleButtonClick}
-                >
-                  Select File
-                </button>
                 <span className="block text-xs text-gray-700 dark:text-gray-300 mb-2">
-                  or drag & drop here
+                  Click or drag & drop file here
                 </span>
                 <p className="text-cyan-600 dark:text-cyan-300 text-sm">
                   {selectedFile ? `File ready: ${selectedFile.name}` : 'No file selected'}
