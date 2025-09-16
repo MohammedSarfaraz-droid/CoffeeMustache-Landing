@@ -15,7 +15,13 @@ const Logo = () => {
         duration: 0.8,
         ease: "easeInOut",
       }}
-      className="flex items-center flex-shrink-0"
+      className="flex items-center flex-shrink-0 cursor-pointer"
+      onClick={() => {
+        if (typeof window !== 'undefined') {
+          window.location.href = "/";
+        }
+      }}
+      title="Go to Home"
     >
       <Image
         src={
