@@ -18,21 +18,20 @@ const Pricing = () => {
   return (
     <section
       id="pricing"
-      className="w-full py-10 overflow-x-hidden overflow-y-hidden min-h-0"
+      className="w-full py-10 min-h-0"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full overflow-x-hidden overflow-y-hidden min-h-0">
+      <div className="container mx-auto px-4 sm:px-6 xl:px-8 max-w-7xl w-full">
         {/* Header */}
         <PricingHeader
           title="Two Ways to Grow Your Café with Coffee Mustache"
           highlightText="Your Choice"
           promoText="Layer on your existing POS for ₹999/month, or upgrade to Coffee Mustache POS at zero cost."
-
         />
 
         {/* Pricing Comparison */}
-        <div className="w-full max-w-full mx-auto">
-          {/* Responsive Layout */}
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 w-full max-w-full mx-auto overflow-x-hidden overflow-y-hidden min-h-0">
+        <div className="w-full mx-auto">
+          {/* Responsive Layout: stacked until 1280px (xl), row above */}
+          <div className="flex flex-col xl:flex-row items-center justify-center gap-6 xl:gap-8 w-full mx-auto">
             {/* Individual AI Subscriptions */}
             <ExistingPosCard
               aiModels={aiModels}
