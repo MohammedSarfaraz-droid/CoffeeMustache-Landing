@@ -12,12 +12,8 @@ const CafeCharacteristics = () => {
             tag: "100% Specialized",
             description: "Built exclusively for cafés, not generic restaurants or retail. Every feature optimized for coffee shop operations.",
             icon: (
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M17 8h1a4 4 0 1 1 0 8h-1" />
-                    <path d="m17 8-2-4H7l-2 4" />
-                    <path d="M7 8v8a4 4 0 0 0 4 4h2a4 4 0 0 0 4-4V8" />
-                    <line x1="7" y1="8" x2="17" y2="8" />
-                </svg>
+                // Coffee shop icon
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M3 21V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /><rect x="7" y="10" width="10" height="7" rx="2" fill="white" /><path d="M9 17v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
             ),
             position: "top-left"
         },
@@ -27,16 +23,8 @@ const CafeCharacteristics = () => {
             tag: "Beyond Analytics",
             description: "AI agents don't just show insights—they execute actions. From marketing campaigns to menu optimization, AI handles it.",
             icon: (
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="m9.5 2 5 5L22 4.5" />
-                    <path d="M3 3v5h5" />
-                    <path d="M3 8s0 2.5 2.5 2.5S8 8 8 8" />
-                    <path d="m14 10 5.5 5.5" />
-                    <path d="m10 14 5.5 5.5" />
-                    <path d="m21 15-3.5-3.5" />
-                    <path d="m21 19-3.5-3.5" />
-                    <path d="M3 21v-5h5" />
-                </svg>
+                // AI/robot icon
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="10" rx="5" fill="white" /><rect x="7" y="3" width="10" height="4" rx="2" fill="white" /><circle cx="8.5" cy="12" r="1.5" fill="white" /><circle cx="15.5" cy="12" r="1.5" fill="white" /><path d="M12 17v2" stroke="white" strokeWidth="2" strokeLinecap="round" /></svg>
             ),
             position: "middle-left"
         },
@@ -46,13 +34,8 @@ const CafeCharacteristics = () => {
             tag: "Not Just Smooth",
             description: "Beyond operational efficiency—every feature designed to increase order value, frequency, and customer loyalty.",
             icon: (
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="m3 17 6-6 4 4 8-8" />
-                    <path d="M14 7h7v7" />
-                    <circle cx="12" cy="12" r="1" />
-                    <circle cx="19" cy="12" r="1" />
-                    <circle cx="5" cy="12" r="1" />
-                </svg>
+                // Growth chart icon
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M4 20V10m4 10V4m4 16v-7m4 7v-4" stroke="white" strokeWidth="2" strokeLinecap="round" /><path d="M4 20h16" stroke="white" strokeWidth="2" strokeLinecap="round" /></svg>
             ),
             position: "bottom-left"
         },
@@ -62,13 +45,8 @@ const CafeCharacteristics = () => {
             tag: "One-Stop Solution",
             description: "Customer app, AI analytics, staff management, and POS integration—everything cafés need in one platform.",
             icon: (
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="3" />
-                    <path d="M12 1v6m0 6v6" />
-                    <path d="m21 12-6 0m-6 0-6 0" />
-                    <path d="m16.24 7.76-4.24 4.24m0 0L7.76 16.24" />
-                    <path d="m16.24 16.24-4.24-4.24m0 0L7.76 7.76" />
-                </svg>
+                // Ecosystem/network icon
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" fill="white" /><circle cx="5" cy="5" r="2" fill="white" /><circle cx="19" cy="5" r="2" fill="white" /><circle cx="5" cy="19" r="2" fill="white" /><circle cx="19" cy="19" r="2" fill="white" /><path d="M12 9V5m0 10v4m7-7h-4m-6 0H5m10.6-6.6L14 9m-4 0L6.4 6.4m11.2 11.2L14 15m-4 0l-3.6 3.6" stroke="white" strokeWidth="1.5" /></svg>
             ),
             position: "top-right"
         },
@@ -78,11 +56,8 @@ const CafeCharacteristics = () => {
             tag: "Customer Experience",
             description: "Personalized recommendations, one-click reorders, intelligent upsells—turning visitors into loyal regulars.",
             icon: (
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                    <circle cx="12" cy="7" r="4" />
-                    <path d="m22 2-7 20-4-9-9-4Z" />
-                </svg>
+                // Heart/star user icon
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" fill="white" /><path d="M4 20c0-4 4-7 8-7s8 3 8 7" stroke="white" strokeWidth="2" /><path d="M12 14l1.5 3.5L17 18l-2.75 2.25L15 23l-3-2-3 2 1.75-2.75L7 18l3.5-0.5L12 14z" fill="white" /></svg>
             ),
             position: "middle-right"
         },
@@ -92,10 +67,8 @@ const CafeCharacteristics = () => {
             tag: "Aligned Success",
             description: "Zero setup costs, zero subscriptions. We only earn when your café grows—true partnership alignment.",
             icon: (
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
-                    <path d="m9 12 2 2 4-4" />
-                </svg>
+                // Handshake icon
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M8 13l-4-4a2 2 0 0 1 2.83-2.83l3.17 3.17 3.17-3.17A2 2 0 0 1 18 9l-4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /><path d="M8 13l4 4 4-4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
             ),
             position: "bottom-right"
         }
